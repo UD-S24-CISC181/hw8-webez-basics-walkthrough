@@ -13,6 +13,10 @@
 - Add a new p tag
 - Open the JavaScript developer console so you can see errors there.
   - Some text is normal and fine. You're looking for red boxes that say "Uncaught Error"
+- Deploy the repo
+  - On the github site, go to Settings
+  - Click Pages on the left
+  - Change the source dropdown to be Github Actions
 
 ## 1) Basic HTML
 
