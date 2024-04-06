@@ -1,3 +1,8 @@
+---
+title: WebEZ Basics Walkthrough
+layout: page
+---
+
 # WebEZ Basics Walkthrough
 
 This walkthrough will help you build and deploy your first WebEZ application. You will learn how to create components, bind values, and handle basic events.
