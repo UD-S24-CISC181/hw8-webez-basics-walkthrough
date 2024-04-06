@@ -187,6 +187,109 @@ Now we'll create a second component that lives in the `MainComponent`. This comp
 
 ![Boop Button](images/boop_button.png)
 
+1. Begin by creating the new Boop Button component. This requires running a terminal command from within the `src/app` directory. Navigate to the terminal in VS Code and run the following commands:
+
+```bash
+cd src/app/
+webez c boop-button
+```
+
+<details markdown="block">
+<summary>Click here to see the expected output for this command</summary>
+
+```
+webez v.0.4.11 is starting...
+Creating a new component: boop-button
+Copying scaffold files
+Component scaffold created
+Finished
+```
+
+</details>
+
+The `c` in the command is short for `component`, and `boop-button` is the name of the new component. This will create a new folder in the `src/app` directory with the necessary files for the new component.
+That folder will have the following files: `boop-button.component.ts`, `boop-button.component.html`, `boop-button.component.css`, and `boop-button.component.test.ts`.
+
+2. The component has been created, but it is not yet being used in the `MainComponent`. Open `main.component.ts` and add the following import statement at the top of the file:
+
+```typescript
+import { BoopButtonComponent } from './boop-button/boop-button.component';
+```
+
+This imports the `BoopButtonComponent` class from the `boop-button.component.ts` file. We will use this class to create an instance of the Boop Button component in the `MainComponent`.
+
+3. Define a new private field in the `MainComponent` class called `boopButton` of type `BoopButtonComponent`. This field will hold an instance of the Boop Button component that should be created when the `MainComponent` is instantiated.
+
+```typescript
+private boopButton: BoopButtonComponent = new BoopButtonComponent();
+```
+
+4. Although the `MainComponent` class now has a `boopButton` field, it is not yet being displayed on the page. To do this, we need to add the HTML for the Boop Button component to the `main.component.html` file. Open `main.component.html` and add the following line after the `p` tags, but before the final `</div>`:
+
+```html
+<div id="boop-button"></div>
+```
+
+<details markdown="block">
+<summary>Click here to see the <code>main.component.html</code> file so far</summary>
+
+```html
+<div>
+    <div class="header">
+        <div class="title">My First WebEZ Application</div>
+    </div>
+    <p id="example-text">Welcome from the HTML side!</p>
+    <p id="example-target"></p>
+    <div id="boop-button"></div>
+</div>
+```
+
+</details>
+
+5. Next, we have to actually add the component instance from the private field to the content of the `MainComponent`. Open `main.component.ts` and add the following line to the `constructor` method, after the call to `super`:
+
+```typescript
+this.addComponent(this.boopButton, "boop-button");
+```
+
+This takes the component stored in the `boopButton` field and adds it to the `MainComponent`'s content. The second argument is the `id` of the element in the HTML that the component should be added to. In this case, we are adding the Boop Button component to the element with the `id` `boop-button`. This allows us to place the Boop Button component in the correct location in the HTML; if we didn't specify an `id`, the component would just be added to the end.
+
+<details markdown="block">
+<summary>Click here to see the full <code>main.component.ts</code> file so far</summary>
+
+```typescript
+import html from "./main.component.html";
+import css from "./main.component.css";
+import { EzComponent, BindValue } from '@gsilber/webez';
+import { BoopButtonComponent } from './boop-button/boop-button.component';
+
+export class MainComponent extends EzComponent {
+
+    @BindValue("example-target")
+    private myText: string = "Hello from the TypeScript side!";
+
+    private boopButton: BoopButtonComponent = new BoopButtonComponent();
+
+    constructor() {
+        super(html, css);
+        this.addComponent(this.boopButton, "boop-button");
+    }
+}
+```
+
+</details>
+
+6. When you save these files, the Boop Button component should now be displayed on the page. However, there is not yet any button or functionality in the Boop Button component, just the default text that comes from creating a new component. Open the `boop-button/boop-button.component.html` file and replace the existing content with the following code:
+
+```html
+<div>
+    <button id="booper">Boop!</button>
+    <p>Boop Record: <span id="boop-record"></span></p>
+</div>
+```
+
+
+
 Make a new component: Boop Button
 - cd src/app
 - webez component boop-button
