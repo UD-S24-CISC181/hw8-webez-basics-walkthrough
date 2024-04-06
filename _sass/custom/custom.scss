@@ -1,17 +1,19 @@
-ol {
-  counter-reset: none;
-
-  > li {
-    content: counter(list-item);
-    counter-increment: auto;
-  }
-
+.main-content {
   ol {
     counter-reset: none;
 
     > li {
-      content: counter(list-item, lower-alpha);
+      content: counter(list-item);
       counter-increment: auto;
+    }
+
+    ol {
+      counter-reset: none;
+
+      > li {
+        content: counter(list-item, lower-alpha);
+        counter-increment: auto;
+      }
     }
   }
 }
