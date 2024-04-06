@@ -366,20 +366,271 @@ npm run test boop
 
 ## 3) Simple Calculator Component
 
-Make a new component: Simple Calculator
-- webez component simple-calculator
-- Add the HTML
-- Create the component and add it to MainComponent, don't forget to import
-- Left number, bind value
-- Right number, bind value
-- Operation select box, bind value
-- Result, bind value
+Our next component will be a simple calculator. This calculator will have two input fields for numbers, a select box for the operation, and a button to calculate the result. The result will be displayed on the page. We will use this component to demonstrate how to bind values to input fields and select boxes, and how to handle their associated events in WebEZ.
 
-- onFirstNumberChange,
-- onSecondNumberChange,
-- onOperationChange
+![Simple Calculator](images/simple_calculator.png)
 
-- calculate button
+1. Begin by creating the new Simple Calculator component. Once again, this requires running a terminal command from within the `src/app` directory. Navigate to the terminal in VS Code. Most likely, you are already in the `src/app` directory, but if not, run `cd src/app/` and then run the following commands:
+
+```bash
+webez c simple-calculator
+```
+
+Just like last time, this will create a new folder in the `src/app` directory with the necessary files for the new component. The folder will have the following files: `simple-calculator.component.ts`, `simple-calculator.component.html`, `simple-calculator.component.css`, and `simple-calculator.component.test.ts`.
+
+1. As before, we have to import the new component into the `MainComponent`, create an instance of the component, and add it to the content of the `MainComponent`. Open `main.component.ts`, import the `SimpleCalculatorComponent` class, and add a new private field to the `MainComponent` class called `calculator` of type `SimpleCalculatorComponent`. Then, add the component to the content of the `MainComponent` in the `constructor` method.
+
+<details markdown="block">
+<summary>Click here to see what the <code>main.component.ts</code> file should look like when you have done this!</summary>
+
+```typescript
+import html from "./main.component.html";
+import css from "./main.component.css";
+import { BindValue, EzComponent } from "@gsilber/webez";
+import { BoopButtonComponent } from "./boop-button/boop-button.component";
+import { SimpleCalculatorComponent } from "./simple-calculator/simple-calculator.component";
+
+/**
+ * @description MainComponent is the main component of the app
+ * @extends EzComponent
+ *
+ */
+export class MainComponent extends EzComponent {
+    @BindValue("example-target")
+    private myText: string = "Hello from the TypeScript side!";
+
+    private boopButton = new BoopButtonComponent();
+    private calculator = new SimpleCalculatorComponent();
+
+    constructor() {
+        super(html, css);
+        this.addComponent(this.boopButton, "boop-button");
+        this.addComponent(this.calculator, "calculator");
+    }
+}
+```
+
+</details>
+
+2. Similarly, you must also add in a new `div` element with the `id` `calculator` to the `main.component.html` file. This will be the location where the Simple Calculator component will be displayed on the page. Open `main.component.html` and add the following line after the `boop-button` `div`, but before the final `</div>`:
+
+```html
+<div id="calculator"></div>
+```
+
+<details markdown="block">
+<summary>Click here to see the <code>main.component.html</code> file when you have done this correctly.</summary>
+
+```html
+<div>
+    <div class="header">
+        <div class="title">My first application!</div>
+    </div>
+    <p id="example-text">Welcome from the HTML side!</p>
+    <p id="example-target"></p>
+    <div id="boop-button"></div>
+    <div id="calculator"></div>
+</div>
+```
+
+</details>
+
+3. Once those files are saved, we can see the Simple Calculator component on the live webpage, although it will still just have the default content that comes from creating a new component. Open the `simple-calculator/simple-calculator.component.html` file and replace the existing content with the following code:
+
+```html
+<div>
+    <input type="number" id="first-number" />
+    <input type="number" id="second-number" />
+
+    <select id="operation-select">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+    </select>
+
+    <button id="calculate-button">Calculate</button>
+
+    <span id="result"></span>
+</div>
+```
+
+Let's break down all the new elements in the Simple Calculator component:
+
+* The first element is an `input` tag with the `type` attribute set to `number` and an `id` attribute set to `first-number`. This is where the user will input the first number for the calculation. The `type` attribute specifies the type of input field; we could have used `text`, `password`, or other types as well.
+* The second element is another `input` tag, with similar settings, but with an `id` attribute set to `second-number`. This is where the user will input the second number for the calculation.
+* The third element is a `select` tag with the `id` attribute set to `operation-select`. This is a dropdown box that allows the user to select the operation they want to perform. The `option` tags inside the `select` tag represent the different options in the dropdown box. Each `option` tag has a `value` attribute that specifies the actual value of the option when it is selected. The text inside the `option` tag is what is displayed to the user.
+* The fourth element is a `button` tag with the `id` attribute set to `calculate-button`. This is the button that the user will click to perform the calculation. The text inside the `button` tag is what is displayed on the button.
+* The fifth element is a `span` tag with the `id` attribute set to `result`. This is where the result of the calculation will be displayed.
+
+4. Next, we need to add some TypeScript functionality to the Simple Calculator component. Open the `simple-calculator/simple-calculator.component.ts` file and add a new private field to the `SimpleCalculatorComponent` class called `firstNumber` of type `number`, initially set to `7`. You also need to import the `BindValueToNumber` decorator from the `@gsilber/webez` package to *bind* the `result` field to the `span` with the same `id` in the HTML. Note that we are using `BindValueToNumber` instead of `BindValue` because the input fields are of type `number`!
+
+```typescript
+import { BindValueToNumber, EzComponent } from "@gsilber/webez";
+import html from "./simple-calculator.component.html";
+import css from "./simple-calculator.component.css";
+
+export class SimpleCalculatorComponent extends EzComponent {
+    @BindValueToNumber("first-number")
+    private firstNumber: number = 7;
+
+    constructor() {
+        super(html, css);
+    }
+}
+```
+
+When saved, the `firstNumber` field should be bound to the `first-number` input field in the HTML. This means that the value of the `firstNumber` field will be displayed in the input field. However, this is a one-way binding; if the user changes the value in the input field, the `firstNumber` field will not be updated. We will add that functionality next.
+
+5. We need to add a new method to the `SimpleCalculatorComponent` class that will be called every time the value in the `first-number` input field changes. We will decorate this method with a special `Input` decorator (which must be imported from `gsilber/webez`, along with another class named `ValueEvent`). Add the following method to the `SimpleCalculatorComponent` class:
+
+```typescript
+@Input("first-number")
+onFirstNumberChange(event: ValueEvent) {
+    this.firstNumber = +event.value;
+}
+```
+
+{: .note-title }
+> Put this method in the `SimpleCalculatorComponent` class, fully after the constructor. In general, we recommend putting the fields before the constructor, and the methods after the constructor.
+
+The `@Input` decorator is used to bind a method to an "Input" event on an `input` element. In this case, we are binding the `onFirstNumberChange` method to the `Input` event on the input field with the `id` `first-number`. This means that every time the value in the input field changes, the `onFirstNumberChange` method will be called. The `onFirstNumberChange` method takes an `event` parameter of type `ValueEvent`, which contains the new `value` of the input field. The `+` operator is used to convert the value to a number, since the value is always a string. As long as the user inputs a valid number, this will work correctly.
+
+6. Now we need to do the same thing for the `second-number` input field. Add a new private field to the `SimpleCalculatorComponent` class called `secondNumber` of type `number`, initially set to `3`. Then, add a new method to the `SimpleCalculatorComponent` class that will be called every time the value in the `second-number` input field changes. As before, we will decorate this method with a special `Input` decorator. Add the following code to the `SimpleCalculatorComponent` class:
+
+```typescript
+@BindValueToNumber("second-number")
+private secondNumber: number = 3;
+
+// ...constructor...
+
+@Input("second-number")
+onSecondNumberChange(event: ValueEvent) {
+    this.secondNumber = +event.value;
+}
+```
+
+7. Next, we need to add a new private field to the `SimpleCalculatorComponent` class called `operationSelect` of type `string`, initially set to `"add"`. This field will hold the value of the selected operation from the dropdown box. We also need to import the `BindValue` decorator from the `@gsilber/webez` package to *bind* the `operationSelect` field to the `select` box with the same `id` in the HTML.
+
+```typescript
+import { BindValue, BindValueToNumber, EzComponent, Input, ValueEvent } from "@gsilber/webez";
+// ...other imports...
+
+export class SimpleCalculatorComponent extends EzComponent {
+    // ...other fields...
+
+    @BindValue("operation-select")
+    private operationSelect: string = "add";
+
+    // ...other methods...
+}
+```
+
+8. We need to add a new method to the `SimpleCalculatorComponent` class that will be called every time the value in the `operation-select` select box changes. We will decorate this method with a special `Change` decorator (which must, as always, be imported!). Add the following method to the `SimpleCalculatorComponent` class:
+
+```typescript
+@Change("operation-select")
+onOperationChange(event: ValueEvent) {
+    this.operationSelect = event.value;
+}
+```
+
+The `@Change` decorator is used to bind a method to a "Change" event on a `select` element. In this case, we are binding the `onOperationChange` method to the `Change` event on the select box with the `id` `operation-select`. The `event` parameter is once again a `ValueEvent`, which contains the new `value` of the select box. This value is then stored in the `operationSelect` field directly, without needing to convert it to a number.
+
+9. We need to add a new private field to the `SimpleCalculatorComponent` class called `result` of type `number`, initially set to `0`. This field will hold the result of the calculation. This field will be bound to the `result` span in the HTML.
+
+```typescript
+@BindValueToNumber("result")
+private result: number = 0;
+```
+
+10. Finally, we need to add a new method to the `SimpleCalculatorComponent` class that will be called every time the button is clicked. We will decorate this method with the `Click` decorator. Add the following method to the `SimpleCalculatorComponent` class:
+
+```typescript
+@Click("calculate-button")
+calculate() {
+    const firstNumber = this.firstNumber;
+    const secondNumber = this.secondNumber;
+    let result = 0;
+
+    // Do the math
+    result = firstNumber + secondNumber;
+
+    this.result = result;
+}
+```
+
+The `calculate` method gets the values of the `firstNumber` and `secondNumber` fields, performs the calculation based on the selected operation, and stores the result in the `result` field. In this case, we are only performing addition, so you will need to modify this method to handle the other operations as well. Add an `if` statement to check the value of the `this.operationSelect` field and perform the appropriate calculation based on the selected operation.
+
+<details markdown="block">
+<summary>Click here to see the full <code>simple-calculator.component.ts</code> file when this is done correctly.</summary>
+
+```typescript
+import { BindValue, BindValueToNumber, Change, Click, EzComponent, Input, ValueEvent } from "@gsilber/webez";
+import html from "./simple-calculator.component.html";
+import css from "./simple-calculator.component.css";
+
+export class SimpleCalculatorComponent extends EzComponent {
+    @BindValueToNumber("first-number")
+    firstNumber: number = 7;
+    @BindValueToNumber("second-number")
+    secondNumber: number = 3;
+
+    @BindValue("operation-select")
+    operationSelect: string = "multiply";
+
+    @BindValueToNumber("result")
+    result: number = 0;
+
+    constructor() {
+        super(html, css);
+    }
+
+    @Input("first-number")
+    onFirstNumberChange(evt: ValueEvent) {
+        this.firstNumber = +evt.value;
+    }
+
+    @Input("second-number")
+    onSecondNumberChange(evt: ValueEvent) {
+        this.secondNumber = +evt.value;
+    }
+
+    @Change("operation-select")
+    onOperationSelectChange(event: ValueEvent) {
+        this.operationSelect = event.value;
+    }
+
+    @Click("calculate-button")
+    calculate() {
+        const firstNumber = this.firstNumber;
+        const secondNumber = this.secondNumber;
+        let result = 0;
+
+        if (this.operationSelect === "add") {
+            result = firstNumber + secondNumber;
+        } else if (this.operationSelect === "subtract") {
+            result = firstNumber - secondNumber;
+        } else if (this.operationSelect === "multiply") {
+            result = firstNumber * secondNumber;
+        } else if (this.operationSelect === "divide") {
+            result = firstNumber / secondNumber;
+        }
+
+        this.result = result;
+    }
+}
+
+```
+
+</details>
+
+11. Save the files and check the live webpage. You should see the Simple Calculator component with two input fields for numbers, a dropdown box for the operation, a button to calculate the result, and a span to display the result. You can input numbers into the input fields, select an operation from the dropdown box, and click the button to perform the calculation. The result should be displayed in the span.
+
+{: .note-title }
+> Save, Commit, and Push
+>
+> If you haven't saved, committed, and pushed recently, you should probably do so now. This will ensure that your changes are saved and backed up on Github. 
 
 ## 4) Box Editor Component
 
