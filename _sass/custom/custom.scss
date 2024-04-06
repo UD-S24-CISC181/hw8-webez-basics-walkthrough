@@ -14,7 +14,7 @@ div.main-content {
     > li {
       &::before {
         content: counter(stepper) ".";
-        counter-increment: none;
+        counter-increment: stepper;
       }
     }
 
