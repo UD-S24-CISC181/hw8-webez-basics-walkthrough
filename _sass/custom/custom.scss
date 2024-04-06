@@ -1,10 +1,14 @@
 .main-content {
+  div {
+    counter-reset: list-item;
+  }
+
   ol {
     counter-reset: none;
 
     > li {
-      content: counter(list-item);
-      counter-increment: auto;
+      content: counter(list-item) ".";
+      counter-increment: list-item;
     }
 
     ol {
@@ -12,8 +16,8 @@
 
       > li {
         &::before {
-          content: counter(list-item, lower-alpha);
-          counter-increment: auto;
+          content: counter(list-item, lower-alpha) ".";
+          counter-increment: list-item;
         }
       }
     }
