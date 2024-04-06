@@ -11,8 +11,10 @@
       counter-reset: none;
 
       > li {
-        content: counter(list-item, lower-alpha);
-        counter-increment: auto;
+        &::before {
+          content: counter(list-item, lower-alpha);
+          counter-increment: auto;
+        }
       }
     }
   }
