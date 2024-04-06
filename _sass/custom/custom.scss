@@ -4,6 +4,10 @@ div.main-content {
 
 .main-content {
 
+  img {
+    border: 1px solid #ddd;
+  }
+
   h1, h2 {
     counter-reset: stepper;
   }
