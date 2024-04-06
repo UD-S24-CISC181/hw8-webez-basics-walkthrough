@@ -136,7 +136,38 @@ In WebEZ, components are defined as classes that extend the `EzComponent` class.
 private myText: string = "Hello from the TypeScript side!";
 ```
 
+11. On its own, just creating a field doesn't do anything interesting. We need to *bind* the field to the HTML so that the text is displayed on the page. We can do this by using the `BindValue` decorator. Add the following code directly above the `myText` field:
 
+```typescript
+@BindValue("example-target")
+```
+
+The `@BindValue` decorator is used to bind a field to an element in the HTML; in general, a decorator can enhance the functionality of a field or a method of a class. This decorator takes a single argument, which is the `id` of the element that we want to bind to. In this case, we are binding the `myText` field to the element with the `id` `example-target`.
+
+12.  In order to use the decorator, we must also import the `BindValue` decorator from the `@gsilber/webez` package. Modify the existing import statement at the top of the file to include the `BindValue` decorator:
+
+```typescript
+import { EzComponent, BindValue } from '@gsilber/webez';
+```
+
+
+
+<details markdown="block">
+<summary>Click here to see the full TypeScript file so far</summary>
+
+```typescript
+export class MainComponent extends EzComponent {
+
+    @BindValue("example-target")
+    private myText: string = "Hello from the TypeScript side!";
+
+    constructor() {
+        super(html, css);
+    }
+}
+```
+
+</details>
 
 
 Set a breakpoint in the code to see the current values of the variables.
