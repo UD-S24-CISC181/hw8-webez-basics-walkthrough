@@ -102,8 +102,10 @@ Make sure you use the exact `id` value (`example-text`) as shown above. When you
 
 </details>
 
-{: .important }
+{: .important-title }
 
+> IDs Matter!
+> 
 > Make sure you are matching the `id` values exactly as shown above. This will become important when we run the tests later!
 
 9. Open `main.component.ts`. This is the TypeScript file that defines the `MainComponent` class. This is where the application logic will go. You will see that it contains the following code:
