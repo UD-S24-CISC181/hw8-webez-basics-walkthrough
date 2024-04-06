@@ -629,6 +629,12 @@ export class SimpleCalculatorComponent extends EzComponent {
 
 11. Save the files and check the live webpage. You should see the Simple Calculator component with two input fields for numbers, a dropdown box for the operation, a button to calculate the result, and a span to display the result. You can input numbers into the input fields, select an operation from the dropdown box, and click the button to perform the calculation. The result should be displayed in the span.
 
+12. Run the tests for the Simple Calculator component to make sure everything is working correctly. Open a terminal in VS Code and run the following command:
+
+```bash
+npm run test calculator
+```
+
 {: .note-title }
 > Save, Commit, and Push
 >
@@ -638,21 +644,222 @@ export class SimpleCalculatorComponent extends EzComponent {
 
 Our final component will be a Box Editor component. This component will allow the user to create a box around an image with a specified padding, margin, and background color. The user will be able to input these values into input fields and select boxes, and the box will be displayed on the page. We will use this component to demonstrate how to bind values to style properties, and show a little bit about the CSS "Box Model".
 
-Make a new component: Box Editor
-- webez component box-editor
-- Create the component and add it to MainComponent, don't forget to import
-- Copy over the given HTML, piece by piece
-- Have to explain the transformer syntax here
-- Handle padding
-- Handle margin
-- Handle background color
+![Box Editor](images/box_editor.png)
+
+1. Begin by creating the new Box Editor component. Once again, this requires running a terminal command from within the `src/app` directory. Navigate to the terminal in VS Code. Most likely, you are already in the `src/app` directory, but if not, run `cd src/app/` and then run the following commands:
+
+```bash
+webez c box-editor
+```
+
+Just like last time, this will create a new folder in the `src/app` directory with the necessary files for the new component.
+
+2. As before, we have to import the new component into the `MainComponent`, create an instance of the component, and add it to the content of the `MainComponent`. Open `main.component.ts`, import the `BoxEditorComponent` class, and add a new private field to the `MainComponent` class called `box` of type `BoxEditorComponent`. Then, add the component to the content of the `MainComponent` in the `constructor` method to a target id `"box"`.
+
+3. Edit the `main.component.html` file to include a new `div` element with the `id` `box`, just like we did for the other components.
+
+4. With the component added to the content of the `MainComponent`, we can see the Box Editor component on the live webpage. However, it will still just have the default content that comes from creating a new component. Open the `box-editor/box-editor.component.html` file and replace the existing content with the following code:
+
+```html
+<div class="frame">
+    Box Editor:
+    <div>
+        <label for="padding-input">Padding: </label>
+        <input type="number" id="padding-input" />
+        <br />
+        <label for="margin-input">Margin: </label>
+        <input type="number" id="margin-input" />
+        <br />
+        <label for="background-select">Background Color: </label>
+        <select id="background-select">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+        <br />
+        <img src="___" id="image" class="frame" />
+    </div>
+</div>
+```
+
+There's a lot of new stuff in this HTML, so let's break it down:
+
+* The first element is a `div` tag with the class `frame`. This is the outer frame of the box that will be created around the box editor, and we are going to make it explicitly visible by adding some CSS styling to it. To do so, we have to attach the class `frame` to the `div` tag. More on that soon.
+* Inside the inner `div` tag, we have three `label` tags, each with a `for` attribute that corresponds to the `id` of an input field or select box. This is a best practice for accessibility, as it allows screen readers to associate the label with the input field. It also makes it easier to use in general, since clicking on the label will focus the input field.
+* The first `label` tag is for the padding input field, which is an `input` tag with the `type` attribute set to `number` and an `id` attribute set to `padding-input`. This is where the user will input the padding value for the box. The padding is the space around the image inside the box.
+* The second `label` tag is for the margin input field, which is similar to the padding input field, but with an `id` attribute set to `margin-input`. This is where the user will input the margin value for the box. The margin is the space around the box itself, to keep it away from other HTML elements.
+* The third `label` tag is for the background color select box, which is a `select` tag with the `id` attribute set to `background-select`. This is a dropdown box that allows the user to select the background color of the box. The `option` tags inside the `select` tag represent the different options in the dropdown box. Each `option` tag has a `value` attribute that specifies the actual value of the option when it is selected. The text inside the `option` tag is what is displayed to the user.
+* The `br` tags are used to create line breaks between the input fields and select box, to make the form easier to read.
+* Finally, the `img` tag is used to display an image inside the box. The `src` attribute is set to `___`, which is a placeholder for the actual image URL. The `id` attribute is set to `image`, and the `class` attribute is set to `frame`. The `class` attribute is used to attach the `frame` class to the image, which will make it visible inside the box.
+
+5. We need to choose an image to display inside the box. You can use any image you like, although we recommend one that is not too large. We used a picture of our dog Ada. Save the image to the `assets` directory and replace the `___` in the `img` tag with the name of the image file. For example, if the image is named `ada.jpg`, the `img` tag should look like this:
+
+```html
+<img src="assets/ada.jpg" id="image" class="frame" />
+```
+
+{: .note-title }
+> The src Matters
+> 
+> The `src` attribute of the `img` tag should point to the correct location of the image file. If the image is not displayed, double-check the path to the image file. Make sure you put the file in the `assets` directory and that the path in the `src` attribute is correct, and does not have unnecessary slashes (`/`). Also double check that you have the right file extension (`.jpg`, `.png`, etc.).
+
+6. Before we add the TypeScript functionality to the Box Editor component, we need to add some CSS styling to make the box frame visible. Open the `box-editor/box-editor.component.css` file and add the following CSS code:
+
+```css
+#image {
+    width: 100px;
+    height: 100px;
+}
+
+.frame {
+    border: 1px solid black;
+}
+```
+
+This is the first CSS we've written, so let's break it down:
+
+* The `#image` selector is used to style the image inside the box. By using a `#` symbol, we can explicitly refer to a specific id on the page. Then, inside of the curly braces, we can set rules by writing `key: value;` pairs. In this case, we are setting the `width` and `height` of the image to `100px`. You can adjust these values to make the image larger or smaller, depending on your preference.
+* The `.frame` selector is used to style the outer frame of the box. By using a `.` symbol, we can refer to any occurrence of a `class` on the page (as specified by the `class` attribute). In this case, we are setting the `border` of the frame to `1px solid black`. This will create a thin black border around the box. You can adjust the `1px` value to make the border thicker or thinner, and you can change the `black` value to any other color you like.
+
+CSS is very powerful and allows you to style the page in a lot of different ways. That is all the CSS class styling we will do, but next we will add the TypeScript functionality that will affect the styling of the box dynamically.
+
+7. Open the `box-editor/box-editor.component.ts` file and add a new private field to the `BoxEditorComponent` class called `padding` of type `number`, initially set to `0`. You also need to import the `BindValueToNumber` decorator from the `@gsilber/webez` package to *bind* the `padding` field to the `padding-input` input field in the HTML. You then also need to create a new method (`onPaddingChange`) to handle the `Input` event on the `padding-input` input field. Refer to the code you used in the Simple Calculator component to help you with this.
+
+8. Repeat this for the `margin` input field. Add a new private field to the `BoxEditorComponent` class called `margin` of type `number`, initially set to `0`. Bind the `margin` field to the `margin-input` input field in the HTML. Create a new method (`onMarginChange`) to handle the `Input` event on the `margin-input` input field.
+
+9. Just changing the padding and margin values won't be enough to see the changes on the page. We need to bind the padding and margin values to the actual CSS properties of the box frame. To do this, we need to use a special `BindStyleToNumberAppendPx` decorator that will bind the padding and margin values to the `padding` and `margin` CSS properties of the image (these style attributes are measured in pixels, so the decorator appends `"px"` to the numbers automatically). Add the following code to the `BoxEditorComponent` fields:
+
+```typescript
+@BindStyleToNumberAppendPx("image", "padding")
+@BindValueToNumber("padding-input")
+private padding: number = 0;
+
+@BindStyleToNumberAppendPx("image", "margin")
+@BindValueToNumber("margin-input")
+private margin: number = 0;
+```
+
+Now you should be able to change the padding and margin values in the input fields, and see the changes reflected in the box frame on the page. Try making the padding and margin values larger or smaller to see how it affects the box.
+
+10. Next, we need to add a new private field to the `BoxEditorComponent` class called `background` of type `string`, initially set to `"red"`. You also need to import the `BindValue` decorator from the `@gsilber/webez` package to *bind* the `background` field to the `background-select` select box in the HTML. Create a new method (`onBackgroundChange`) to handle the `Change` event on the `background-select` select box.
+
+11. To make the background color change whenever we change the `background` field, we need to bind the `background` field to the `background-color` CSS property of the image. To do this, we need to use a special `BindStyle` decorator that will bind the `background` field to the `backgroundColor` CSS property of the image. Add the following code to the `BoxEditorComponent` fields:
+
+```typescript
+@BindStyle("image", "backgroundColor")
+@BindValue("background-select")
+background: string = "red";
+```
+
+{: .note-title }
+> The `backgroundColor` Property
+>
+> The CSS property is actually called `background-color`, but WebEZ refers to it as `backgroundColor` to match the TypeScript naming style. This is a common convention in JavaScript and TypeScript, where hyphens from the CSS/HTML side are replaced with camelCase.
+
+<details markdown="block">
+<summary>Click here to see the full <code>box-editor.component.ts</code> file when this is done correctly.</summary>
+
+```typescript
+import {
+    BindStyle,
+    BindStyleToNumberAppendPx,
+    BindValue,
+    BindValueToNumber,
+    Change,
+    EzComponent,
+    Input,
+    ValueEvent,
+} from "@gsilber/webez";
+import html from "./box-editor.component.html";
+import css from "./box-editor.component.css";
+
+export class BoxEditorComponent extends EzComponent {
+    @BindStyleToNumberAppendPx("image", "padding")
+    @BindValueToNumber("padding-input")
+    padding: number = 0;
+
+    @BindStyleToNumberAppendPx("image", "margin")
+    @BindValueToNumber("margin-input")
+    margin: number = 0;
+
+    @BindStyle("image", "backgroundColor")
+    @BindValue("background-select")
+    background: string = "red";
+
+    constructor() {
+        super(html, css);
+    }
+
+    @Input("padding-input")
+    onPaddingChange(v: ValueEvent) {
+        this.padding = +v.value;
+    }
+    @Input("margin-input")
+    onMarginChange(v: ValueEvent) {
+        this.margin = +v.value;
+    }
+
+    @Change("background-select")
+    onBackgroundChange(v: ValueEvent) {
+        this.background = v.value;
+    }
+}
+```
+
+</details>
+
+12. Save the files and check the live webpage. You should see the Box Editor component with input fields for padding and margin, a select box for the background color, and an image inside a box frame. You can input values into the input fields, select a background color from the dropdown box, and see the changes reflected in the box frame on the page.
+
+You should also now run the tests for the Box Editor component to make sure everything is working correctly:
+
+```bash
+npm run test box
+```
+
+We have only begun to scratch the surface of what we can do with WebEZ:
+
+* There are many other CSS properties we can manipulate, like borders, shadows, and animations.
+* We can bind to other types of events, including Timers.
+* We can create more complex components with multiple elements and interactions.
+* We can use other HTML Elements and CSS properties to create more complex layouts and designs.
 
 ## 5) Deploy Your Site
 
-Deploy the repo
+For now, this is a good place to stop. You have learned how to create components, bind values to elements, handle events, and style elements with WebEZ. You have also learned how to use TypeScript and CSS to create dynamic and interactive web pages. You can now build on this knowledge to create more complex and interesting web applications. But before we finish, let's deploy your site!
 
-- Deploy the repo
-  - On the github site, go to Settings
-  - Click Pages on the left
-  - Change the source dropdown to be Github Actions
+1. First, you need to save all the files, commit your changes, and push them to Github.
+2. Next, you need to enable Github Pages for your repository. Go to the repository on Github, click on the "Settings" tab.
 
+![Github Settings](images/github_settings.png)
+
+3. Scroll down to the "Github Pages" section. 
+
+![Github Pages](images/pages_settings.png)
+
+4. In the Source dropdown, select "GitHub Actions".
+
+![Github Actions](images/github_actions.png)
+
+5. Go to the Actions tab and you should see a "workflow" running. This workflow will build and deploy your site to Github Pages. Once the workflow is complete, you should see a link to your site at the top of the page.
+
+![Check Workflow](images/check_workflow.png)
+
+If the workflow doesn't seem to be running, click "Deploy dev build on main push" and then click "Run workflow". This will manually trigger the workflow to run, although you may have to reload the page to see it.
+
+![Run Workflow](images/run_workflow.png)
+
+You can check the progress of a workflow by clicking on it:
+
+![Workflow Progress](images/workflow_progress.png)
+
+Click on the "deploy" button on the left sidebar to see the details of the deployment.
+
+![Deployment Details](images/click_again.png)
+
+Assuming nothing goes wrong during deployment, the final step can be expanded to get the URL of your live site. Click on the URL to visit your site!
+
+![Live Site](images/final_link.png)
+
+## 6) Submission
+
+Once you have completed the tutorial and deployed your site, you can submit the repository on Canvas to make sure you pass all the tests and receive credit for the assignment.
