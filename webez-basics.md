@@ -173,20 +173,17 @@ export class MainComponent extends EzComponent {
 
 </details>
 
-Now let's try making a component!
+14. To test if your website is working correctly, you can run the tests that are included with the starter repo. To do this, open a terminal in VS Code and run the following command:
+
+```bash
+npm run test main
+```
+
+This will run the `main.test.ts` file that is included with the starter repo. If everything is working correctly, you should see a message that says `All tests passed!`. If you see any errors, double-check your code to make sure everything is correct.
 
 ## 2) Boop Button Component
 
-Set a breakpoint in the code to see the current values of the variables.
-
-Deploy the repo
-
-- Deploy the repo
-  - On the github site, go to Settings
-  - Click Pages on the left
-  - Change the source dropdown to be Github Actions
-
-## 2) Boop Button Component
+Now we'll create a second component that will live inside of the `MainComponent`. This component will have a button that, when clicked, will add a bit of text to the screen. We'll use this to demonstrate how to handle events in WebEZ.
 
 Make a new component: Boop Button
 - cd src/app
@@ -198,20 +195,12 @@ Make a new component: Boop Button
 - Create the decorated method
   - Try just adding "1", oops that is string concatenation!
   - Need to convert it to a number, do the math, and then convert it back
-	
-## 3) Image Selector Component
-	
-Make a new component: Image Selector
-- webez component image-selector
-- Put at least two images in the assets folder
-- Make the image tag
-- Make the select box tag
-- Add the component at a specific place
-- Wire up the select box to the image
-- Add in @Change events
 
-## 4) Simple Calculator Component
-	
+
+Set a breakpoint in the code to see the current values of the variables.
+
+## 3) Simple Calculator Component
+
 Make a new component: Simple Calculator
 - webez component simple-calculator
 - Add the HTML
@@ -227,19 +216,7 @@ Make a new component: Simple Calculator
 
 - calculate button
 
-## 5) Joke Component
-
-Make a new component: Joke
-- webez component joke
-- Add the HTML
-- Create the component and add it to MainComponent, don't forget to import
-- Add a span to display the joke
-- Add a span to display the punchline
-- Add a button to show the punchline
-- BindVisibleToBoolean("punchline") for a visible attribute
-- @Click("reveal")
-
-## 6) Box Editor Component
+## 4) Box Editor Component
 
 Make a new component: Box Editor
 - webez component box-editor
@@ -250,10 +227,12 @@ Make a new component: Box Editor
 - Handle margin
 - Handle background color
 
-## 7) Timer Component
+## 5) Deploy Your Site
 
-Make a new component: Timer
-- webez component timer
-- Create the component and add it to MainComponent, don't forget to import
-- Add a span to display the time
-- Timer event binding to function that increases the number
+Deploy the repo
+
+- Deploy the repo
+  - On the github site, go to Settings
+  - Click Pages on the left
+  - Change the source dropdown to be Github Actions
+
