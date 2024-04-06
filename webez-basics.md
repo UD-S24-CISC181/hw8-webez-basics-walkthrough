@@ -284,25 +284,85 @@ export class MainComponent extends EzComponent {
 ```html
 <div>
     <button id="booper">Boop!</button>
-    <p>Boop Record: <span id="boop-record"></span></p>
+    <p>Boop Record: <span id="boops"></span></p>
 </div>
 ```
 
+This HTML creates a button with the text "Boop!" and a paragraph that displays the boop record, with a `span` tag holding the actual `boops` data. A `span` tag is meant to hold a short, inline snippet of text (inside of a paragraph tag or div). The `boops` span is initially empty, but it will be updated every time the button is clicked. We have also added an `id` attribute to the button (`booper`) and the span element (`boops`), which we will use to bind the button click event and the boop record text. Make sure you get the names of the `id` attributes exactly right, as they will be used in the TypeScript code to bind the elements.
+
+7. Now, we need to add some functionality to the Boop Button component. Open the `boop-button/boop-button.component.ts` file and add a new private `string` field named `boops` to the `BoopButtonComponent` class, initially an empty string. You also need to import the `BindValue` decorator from the `@gsilber/webez` package to *bind* the `boops` field to the `span` with the same `id` in the HTML.
+
+```typescript
+import { EzComponent, BindValue } from '@gsilber/webez';
+import html from "./boop-button.component.html";
+import css from "./boop-button.component.css";
+
+export class BoopButtonComponent extends EzComponent {
+
+    @BindValue("boops")
+    private boops: string = "";
+
+    constructor() {
+        super(html, css);
+    }
+}
+```
+
+8. When clicked, the button will not do anything yet, because we have not added any event handling to the Boop Button component. We need to add an event handler to the button that will update the `boops` field every time the button is clicked. To do this, we need to add a new method to the `BoopButtonComponent` class that will be called when the button is clicked. We will decorate that button with a special `Click` decorator (which must be imported from `gsilber/webez`. Add the following method to the `BoopButtonComponent` class:
+
+```typescript
+@Click("booper")
+private boop() {
+    this.boops += "🐱";
+}
+```
 
 
-Make a new component: Boop Button
-- cd src/app
-- webez component boop-button
-- Add the HTML
-- Create the component and add it to MainComponent, don't forget to import
-- Import the BindValue decorator
-- Create the decorated field
-- Create the decorated method
-  - Try just adding "1", oops that is string concatenation!
-  - Need to convert it to a number, do the math, and then convert it back
+{: .note-title }
 
+> Choose Your Own Emoji
+> 
+> You are free to replace the cat head emoji with any other character or text you like; the tests are flexible. 
 
-Set a breakpoint in the code to see the current values of the variables.
+The `@Click` decorator is used to bind a method to an event on an element. In this case, we are binding the `boop` method to the `Click` event on the button with the `id` `booper`. This means that every time the button is clicked, the `boop` method will be called. The `boop` method appends a cat head emoji to the `boops` field.
+
+<details markdown="block">
+<summary>Click here to see the full <code>boop-button.component.ts</code> file so far</summary>
+
+```typescript
+import { BindValue, Click, EzComponent } from "@gsilber/webez";
+import html from "./boop-button.component.html";
+import css from "./boop-button.component.css";
+
+export class BoopButtonComponent extends EzComponent {
+    @BindValue("boops")
+    private boops: string = "";
+
+    constructor() {
+        super(html, css);
+    }
+
+    @Click("booper")
+    boop() {
+        this.boops += "🐱";
+    }
+}
+```
+
+</details>
+
+9. Save the files and check the live webpage. You should see the Boop Button component with a button that says "Boop!" and a paragraph that displays the boop record. Every time you click the button, a new cat head emoji should be added to the boop record. This demonstrates how to handle events in WebEZ.
+
+10. To test if your website is working correctly, you can run the tests that are included with the starter repo. To do this, open a terminal in VS Code and run the following command:
+
+```bash
+npm run test boop
+```
+
+11. This is a good time to try out the debugger in VS Code. You can set a breakpoint in the `boop` method in the `BoopButtonComponent` class to see the current values of the variables. To do this, click on the left margin of the editor window next to the line of code where you want to set the breakpoint. A red dot will appear, indicating that a breakpoint has been set. When you click the button on the live webpage, the code will pause at the breakpoint, and you can inspect the values of the variables.
+
+![Set a breakpoint](images/debugger_breakpoint.png)
+
 
 ## 3) Simple Calculator Component
 
