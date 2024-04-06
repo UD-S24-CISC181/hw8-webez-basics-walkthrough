@@ -1,0 +1,17 @@
+ol {
+  counter-reset: none;
+
+  > li {
+    content: counter(list-item);
+    counter-increment: auto;
+  }
+
+  ol {
+    counter-reset: none;
+
+    > li {
+      content: counter(list-item, lower-alpha);
+      counter-increment: auto;
+    }
+  }
+}

@@ -150,12 +150,16 @@ The `@BindValue` decorator is used to bind a field to an element in the HTML; in
 import { EzComponent, BindValue } from '@gsilber/webez';
 ```
 
-
+13. If you save the file now, you should be able to see the changes in the live webpage. The text `"Hello from the TypeScript side!"` should be displayed on the page. This is because the `myText` field is bound to the `example-target` element in the HTML. When the field changes, the text on the page will automatically update.
 
 <details markdown="block">
 <summary>Click here to see the full TypeScript file so far</summary>
 
 ```typescript
+import html from "./main.component.html";
+import css from "./main.component.css";
+import { EzComponent, BindValue } from '@gsilber/webez';
+
 export class MainComponent extends EzComponent {
 
     @BindValue("example-target")
