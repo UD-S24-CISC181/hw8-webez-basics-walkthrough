@@ -3,3 +3,5 @@ description: Walkthroughs for various WebEZ features and functions.
 theme: just-the-docs
 
 url: https://ud-s24-cisc181.github.io/hw8-webez-basics-walkthrough/
+
+markdown: kramdown
