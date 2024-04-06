@@ -87,7 +87,7 @@ Make sure you use the exact `id` value (`example-text`) as shown above. When you
 <p id="example-target"></p>
 ```
 
-<details>
+<details markdown="block">
 <summary>Click here to see the full HTML so far</summary>
 
 ```html
