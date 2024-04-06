@@ -183,7 +183,9 @@ This will run the `main.test.ts` file that is included with the starter repo. If
 
 ## 2) Boop Button Component
 
-Now we'll create a second component that will live inside of the `MainComponent`. This component will have a button that, when clicked, will add a bit of text to the screen. We'll use this to demonstrate how to handle events in WebEZ.
+Now we'll create a second component that lives in the `MainComponent`. This component will have a button that, when clicked, will add a bit of text to the screen. We'll use this to demonstrate how to handle events in WebEZ. We will call this component the "Boop Button", since our example will be about booping cat's noses. In the image below, every time the button is clicked, another cat head ("🐱") will be added to the record.
+
+![Boop Button](images/boop_button.png)
 
 Make a new component: Boop Button
 - cd src/app
