@@ -1,5 +1,5 @@
 .main-content {
-  div {
+  h2 {
     counter-reset: list-item;
   }
 
@@ -9,7 +9,7 @@
     > li {
       &::before {
         content: counter(list-item) ".";
-        counter-increment: list-item;
+        counter-increment: none;
       }
     }
 
@@ -19,7 +19,7 @@
       > li {
         &::before {
           content: counter(list-item, lower-alpha) ".";
-          counter-increment: list-item;
+          counter-increment: none;
         }
       }
     }

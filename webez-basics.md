@@ -173,6 +173,9 @@ export class MainComponent extends EzComponent {
 
 </details>
 
+Now let's try making a component!
+
+## 2) Boop Button Component
 
 Set a breakpoint in the code to see the current values of the variables.
 
