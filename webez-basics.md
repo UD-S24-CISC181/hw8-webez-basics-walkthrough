@@ -218,7 +218,7 @@ export class MainComponent extends EzComponent {
 
 </details>
 
-14. To test if your website is working correctly, you can run the tests that are included with the starter repo. To do this, open a terminal in VS Code and run the following command:
+14. To test if your website is working correctly, you can run the tests that are included with the starter repo. To do this, open a second terminal (click `Terminal` in the top menu, and then choose `New Terminal`) in VS Code and run the following command:
 
 ```bash
 npm run test main
