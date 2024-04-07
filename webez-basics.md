@@ -453,6 +453,11 @@ Our next component will be a simple calculator. This calculator will have two in
 webez c simple-calculator
 ```
 
+{: .warning-title }
+> Error: WebEZ Is Not Installed
+>
+> If you get an error that says `webez: command not found` or `The term webez is not recognized`, you need to install WebEZ globally. You can do this by running `npm install -g @gsilber/webez` in the terminal.
+
 Just like last time, this will create a new folder in the `src/app` directory with the necessary files for the new component. The folder will have the following files: `simple-calculator.component.ts`, `simple-calculator.component.html`, `simple-calculator.component.css`, and `simple-calculator.component.test.ts`.
 
 1. As before, we have to import the new component into the `MainComponent`, create an instance of the component, and add it to the content of the `MainComponent`. Open `main.component.ts`, import the `SimpleCalculatorComponent` class, and add a new private field to the `MainComponent` class called `calculator` of type `SimpleCalculatorComponent`. Then, add the component to the content of the `MainComponent` in the `constructor` method.
