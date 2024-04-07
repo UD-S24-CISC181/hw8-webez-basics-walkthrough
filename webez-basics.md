@@ -12,15 +12,60 @@ This walkthrough will help you build and deploy your first WebEZ application. Yo
 1. Click the Github classroom link to create your own copy of the starter repo: <https://classroom.github.com/a/xps8JAYp>
 2. Clone the repo to your local machine in an appropriate directory.
 3. Open the directory in VS Code, as you normally do.
-4. Run `npm install` to install the dependencies.
+4. Run `npm install` in the VS Code terminal to install the dependencies.
 
 ```bash
 npm install
 ```
 
-5. Normally, you would then run `npm run start` to start the development server. However, we will be using the integrated debugger in VS Code. Activate this by pressing `F5` on your keyboard (or selecting the "Run" tab from the top menu and then clicking `Start Debugging`). This will open a new browser window with your application running. The debugger has a bunch of useful features, like setting breakpoints and inspecting variables - we'll talk more about them later on.
+1. Run `npm run start` in the terminal to start the development server. This may take a few seconds to compile the code and start the server. If you need to stop the server, you can press `Ctrl+C` in the terminal.
 
-6. You should now be able to see your website. It won't be very exciting at first, but you can now start editing the code and see the changes in real-time!
+<details>
+<summary>You can click here to see what the output looks like for us when the server starts successfully.</summary>
+
+Keep in mind that the details of your output may look different!
+
+```
+> hw8-webez-basics@0.0.1 start
+> webpack serve
+
+<i> [webpack-dev-server] Project is running at:
+<i> [webpack-dev-server] Loopback: http://localhost:8080/
+<i> [webpack-dev-server] On Your Network (IPv4): http://10.0.0.154:8080/
+<i> [webpack-dev-server] On Your Network (IPv6): http://[fe80::33d:1bcd:53b8:4c62]:8080/
+<i> [webpack-dev-server] Content not from webpack is served from 'C:\Users\acbar\Projects\cisc181\sites\hw8-webez-basics-acbart\public' directory
+<i> [webpack-dev-server] 404s will fallback to '/index.html'
+assets by path assets/ 110 KiB
+  asset assets/babbage.jpg 63.8 KiB [emitted] [from: assets/babbage.jpg] [copied]
+  asset assets/ada.jpg 45.9 KiB [emitted] [from: assets/ada.jpg] [copied]
+  asset assets/.keep 0 bytes [emitted] [from: assets/.keep] [copied]
+asset main.bundle.js 367 KiB [emitted] (name: main) 1 related asset
+asset index.html 198 bytes [emitted]
+runtime modules 27.4 KiB 13 modules
+modules by path ./node_modules/ 219 KiB 41 modules
+modules by path ./src/app/ 38.9 KiB
+  modules by path ./src/app/boop-button/ 7.3 KiB 4 modules
+  modules by path ./src/app/simple-calculator/ 12.2 KiB 4 modules
+  modules by path ./src/app/box-editor/ 10.7 KiB 4 modules
+  modules by path ./src/app/*.css 3.02 KiB 2 modules
+  ./src/app/main.component.ts 5.21 KiB [built] [code generated]
+  ./src/app/main.component.html 445 bytes [built] [code generated]
+modules by path ./*.css 3.5 KiB
+  ./styles.css 2.23 KiB [built] [code generated]
+  ./node_modules/css-loader/dist/cjs.js!./styles.css 1.27 KiB [built] [code generated]
+./wbcore/start.ts 265 bytes [built] [code generated]
+webpack 5.91.0 compiled successfully in 4226 ms
+```
+</details>
+
+6. Although we could now open your website in chrome at the localhost url `http://localhost:8080`, we will use the integrated debugger in VS Code. Activate this by pressing `F5` on your keyboard (or selecting the `Run` tab from the top menu and then clicking `Start Debugging`). This will open a new browser window with your application running. The debugger has a bunch of useful features, like setting breakpoints and inspecting variables - we'll talk more about them later on.
+
+{: .note-title }
+> Debugging in VS Code
+>
+> You can only activate the debugger if you have the server running. If you close the server, you will need to start it again before you can use the debugger.
+
+7. You should now be able to see your website. It won't be very exciting at first, but you can now start editing the code and see the changes in real-time!
 
 ## 1) Basic HTML
 
@@ -359,9 +404,41 @@ export class BoopButtonComponent extends EzComponent {
 npm run test boop
 ```
 
-11. This is a good time to try out the debugger in VS Code. You can set a breakpoint in the `boop` method in the `BoopButtonComponent` class to see the current values of the variables. To do this, click on the left margin of the editor window next to the line of code where you want to set the breakpoint. A red dot will appear, indicating that a breakpoint has been set. When you click the button on the live webpage, the code will pause at the breakpoint, and you can inspect the values of the variables.
+11. This is a good time to try out the debugger in VS Code. You can set a breakpoint in the `boop` method in the `BoopButtonComponent` class to see the current values of the variables. To do this, click on the left margin of the editor window next to the line of code where you want to set the breakpoint. A red dot will appear, indicating that a breakpoint has been set. When you click the button on the live webpage, the code will pause at the breakpoint, and you can inspect the values of the variables. Set a breakpoint next to the `boop` method as shown below:
 
 ![Set a breakpoint](images/debugger_breakpoint.png)
+
+Click the Boop button, and execution will pause inside of the `boop` method!
+
+![Debugger in action](images/debugger_example.png)
+
+The left pane will be the debugger, accessible via the `Debug` tab in the sidebar (the bug on top of a triangle icon). 
+
+* The top box is the variables in the current scope (and any enclosing scopes - don't worry about those just yet, though you're free to poke around if you are curious). 
+* The middle box is the "Watch" box, where we can add specific variables and expressions to watch (we've added the `this.boops` expression to monitor).
+* The bottom box is the call stack, which shows the current function calls that have led to the current point in the code.
+
+There is a small bar in the topright of the screenshot (probably in the top center of your screen) with controls for stepping through the code. From left to right, they are:
+
+* Continue (play button): Continue running the code until the next breakpoint.
+* Step Over (arrow pointing right): Run the next line of code.
+* Step Into (arrow pointing down): If the next line of code is a function call, step into the function.
+* Step Out (arrow pointing up): Finish running the current function and return to the calling function.
+* Restart (circular arrow): Restart the debugger from the beginning.
+* Stop (square): Stop the debugger.
+
+Click the Step Over button to run the next line of code. 
+
+![Step Over](images/debugger_step.png)
+
+If you expand the `this` object in the variables pane, you can see the current value of the `boops` field. The output may look a little confusing, saying something like `f get() {\n` - this is a quirk of how WebEZ-decorated fields look in the debugger. To see the value properly, you must click the little eyeball symbol next to the field name.
+
+To make things a little easier, you can also add the `this.boops` expression to the Watch box to monitor the value of the `boops` field as you step through the code. Hover over the `WATCH` box and click the `+` button to add a new watch expression. Type `this.boops` into the box and press `Enter`. You should see the current value of the `boops` field displayed in the Watch box.
+
+{: .note-title }
+> Hover Over Variables
+>
+> You can also hover over variables in the code to see their current values, while you are stepping through code. There are many other little features in the debugger that can be very helpful, so feel free to explore!
 
 
 ## 3) Simple Calculator Component
