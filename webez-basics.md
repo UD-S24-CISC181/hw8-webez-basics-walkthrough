@@ -255,7 +255,7 @@ Finished
 {: .warning-title }
 > Error: WebEZ Is Not Installed
 >
-> If you get an error that says `webez: command not found` or `The term webez is not recognized`, you need to install WebEZ globally. You can do this by running `npm install -g @gsilber/webez` in the terminal.
+> If you get an error that says `webez: command not found` or `The term webez is not recognized`, you need to install WebEZ globally. You can do this by running `npm install -g @gsilber/webez-cli` in the terminal.
 
 The `c` in the command is short for `component`, and `boop-button` is the name of the new component. This will create a new folder in the `src/app` directory with the necessary files for the new component.
 That folder will have the following files: `boop-button.component.ts`, `boop-button.component.html`, `boop-button.component.css`, and `boop-button.component.test.ts`.
