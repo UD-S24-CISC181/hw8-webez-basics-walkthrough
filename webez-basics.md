@@ -20,7 +20,7 @@ npm install
 
 1. Run `npm run start` in the terminal to start the development server. This may take a few seconds to compile the code and start the server. If you need to stop the server, you can press `Ctrl+C` in the terminal.
 
-<details>
+<details markdown="block">
 <summary>You can click here to see what the output looks like for us when the server starts successfully.</summary>
 
 Keep in mind that the details of your output may look different!
