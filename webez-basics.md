@@ -939,4 +939,6 @@ Assuming nothing goes wrong during deployment, the final step can be expanded to
 
 ## 6) Submission
 
-Once you have completed the tutorial and deployed your site, you can submit the repository on Canvas to make sure you pass all the tests and receive credit for the assignment.
+Once you have completed the tutorial and deployed your site, you can submit the DEPLOYED URL of your site to Canvas for this assignment. Do not submit the Github repository link; submit the link to the actual website (e.g., `https://ud-s24-cisc181.github.io/hw8-webez-basics-YOURNAME`). If you have any questions or issues, please don't hesitate to ask for help!
+
+Although we expect you to pass our tests, this assignment will be graded by checking the deployed site. If the site is not deployed, you will not receive credit for the assignment. The TAs and instructors will review your site, your tests, and your code to ensure that you have completed the assignment correctly.
