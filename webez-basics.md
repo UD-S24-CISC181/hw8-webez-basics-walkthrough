@@ -257,7 +257,7 @@ Finished
 >
 > If you get an error that says `webez: command not found` or `The term webez is not recognized`, you need to install WebEZ globally. You can do this by running `npm install -g @gsilber/webez-cli` in the terminal.
 > 
-> If you are on a Mac, you may need to use `sudo npm install -g @gsilber/webez-cli` instead.
+> If you are on a Mac, you may need to use `sudo npm install -g @gsilber/webez-cli` instead. You may need to input your password to install the package.
 > 
 > If you are using PowerShell for Windows, you might get an error that says `running scripts is disabled on this system`. At the top right of your terminal in VS Code, there should be a little `+` button with a dropdown next to it (looks like `v`). If you click the dropdown, select `Command Prompt`, and that may allow you to run the command instead.
 
