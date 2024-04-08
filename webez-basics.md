@@ -256,11 +256,15 @@ Finished
 > Error: WebEZ Is Not Installed
 >
 > If you get an error that says `webez: command not found` or `The term webez is not recognized`, you need to install WebEZ globally. You can do this by running `npm install -g @gsilber/webez-cli` in the terminal.
+> 
+> If you are on a Mac, you may need to use `sudo npm install -g @gsilber/webez-cli` instead.
+> 
+> If you are using PowerShell for Windows, you might get an error that says `running scripts is disabled on this system`. At the top right of your terminal in VS Code, there should be a little `+` button with a dropdown next to it (looks like `v`). If you click the dropdown, select `Command Prompt`, and that may allow you to run the command instead.
 
 The `c` in the command is short for `component`, and `boop-button` is the name of the new component. This will create a new folder in the `src/app` directory with the necessary files for the new component.
 That folder will have the following files: `boop-button.component.ts`, `boop-button.component.html`, `boop-button.component.css`, and `boop-button.component.test.ts`.
 
-2. The component has been created, but it is not yet being used in the `MainComponent`. Open `main.component.ts` and add the following import statement at the top of the file:
+1. The component has been created, but it is not yet being used in the `MainComponent`. Open `main.component.ts` and add the following import statement at the top of the file:
 
 ```typescript
 import { BoopButtonComponent } from './boop-button/boop-button.component';
