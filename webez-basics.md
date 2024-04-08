@@ -913,20 +913,32 @@ We have only begun to scratch the surface of what we can do with WebEZ:
 
 For now, this is a good place to stop. You have learned how to create components, bind values to elements, handle events, and style elements with WebEZ. You have also learned how to use TypeScript and CSS to create dynamic and interactive web pages. You can now build on this knowledge to create more complex and interesting web applications. But before we finish, let's deploy your site!
 
-1. First, you need to save all the files, commit your changes, and push them to Github.
+1. In order to let you build your site locally (despite the tests originally failing), we modified one of the build files a little bit. To deploy your site, you need to revert this change. Open the `tsconfig.json` file in the top-level of your project folder, and change line 13 to become:
+
+```json
+    "include": ["./src/**/*", "./wbcore/**/*", "./jest/**/*", "./test/**/*"],
+```
+
+{: .note-title }
+> Editing Build Files
+>
+> We won't normally ask you to edit your build files; this is a special case just to make it easier to get started on the assignment.
+
+1. Make sure you save all the files, commit your changes, and push them to Github.
+
 2. Next, you need to enable Github Pages for your repository. Go to the repository on Github, click on the "Settings" tab.
 
 ![Github Settings](images/github_settings.png)
 
-3. Scroll down to the "Github Pages" section. 
+4. Scroll down to the "Github Pages" section. 
 
 ![Github Pages](images/pages_settings.png)
 
-4. In the Source dropdown, select "GitHub Actions".
+5. In the Source dropdown, select "GitHub Actions".
 
 ![Github Actions](images/github_actions.png)
 
-5. Go to the Actions tab and you should see a "workflow" running. This workflow will build and deploy your site to Github Pages. Once the workflow is complete, you should see a link to your site at the top of the page.
+6. Go to the Actions tab and you should see a "workflow" running. This workflow will build and deploy your site to Github Pages. Once the workflow is complete, you should see a link to your site at the top of the page.
 
 ![Check Workflow](images/check_workflow.png)
 
