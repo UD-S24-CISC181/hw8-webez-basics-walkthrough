@@ -18,7 +18,7 @@ For both applications, we have established minimum criteria. The bulk of the ass
 
 ### Lights Out Game
 
-Instructor Example:
+Instructor Example: <https://ud-s24-cisc181.github.io/example-lights-out/>
 
 Players must be able to:
 
