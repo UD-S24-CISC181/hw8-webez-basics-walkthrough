@@ -23,8 +23,8 @@ Instructor Example:
 Players must be able to:
 
 1. **NAME**: See the authors of the game (name and UD email) visibly on the screen.
-2. **GRID**: See a grid of light boxes, all initially lit up
-3. **CLICKING**: Click on a box to change its state, and also invert the state of the four adjacent lights
+2. **GRID**: See a grid of light boxes. The state of each box should be random (you're free to choose the likelihood of a box being on), but at least one box must be on.
+3. **CLICKING**: Click on a box to change its state and also the states of its neighbors (see VARIANTS below).
 4. **VICTORY**: Detect if the game is won when all the lights are turned off, and display a victory message.
 5. **RESIZE**: Have buttons to change the width and the height of the game.
 6. **RESET**: Click a button to start a new game, and display the number of times the player has won
@@ -34,7 +34,7 @@ Players must be able to:
 Extension Ideas:
 
 - Easy: **MENUS**: Have separate screens for the game title, game over, and victory
-- Hard: **SOLVER**: Have a "solve this" button that slowly wins the game by performing the "follow the lights" algorithm
+- Hard: **SOLVER**: Have a "solve this" button that slowly wins the game by performing the ["follow the lights" algorithm](https://stackoverflow.com/questions/19795973/lights-out-game-algorithm)
 
 ### Habit Tracker
 
