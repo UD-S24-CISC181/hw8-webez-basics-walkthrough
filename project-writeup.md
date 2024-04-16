@@ -1,3 +1,10 @@
+---
+title: Final Project Writeup
+layout: page
+---
+
+# Final Project Writeup
+
 Welcome to the Final Project!
 
 You have two options:
