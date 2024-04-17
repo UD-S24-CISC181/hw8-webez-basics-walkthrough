@@ -120,3 +120,16 @@ Then, complete the first requirement (adding your name and UD email to the site)
 Save/add/commit/push, and then make sure your site deploys.
 
 Then start working on the next requirement for your chosen project!
+
+
+## Frequently Asked Questions (FAQ)
+
+Any commonly recurring questions will be answered here.
+
+*No questions so far*
+
+## Change Log
+
+We'll keep track of changes to the project in this Change Log, in case we have to make significant changes or clarifications.
+
+* Version 0.0.1 (4/17/24 at 10:26am): Initial version posted
