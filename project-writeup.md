@@ -111,7 +111,7 @@ The final submission for the project (and this assignment) will be a deployed we
 
 ## Starting
 
-To begin the project, follow this link to clone the assignment:
+To begin the project, follow this link to clone the assignment: <https://classroom.github.com/a/PpxBwu6A>
 
 If you are going to work with a partner, add them to the repository.
 
