@@ -23,17 +23,18 @@ Instructor Example: <https://ud-s24-cisc181.github.io/example-lights-out/>
 Players must be able to:
 
 1. **NAME**: See the authors of the game (name and UD email) visibly on the screen.
-2. **GRID**: See a grid of light boxes. The state of each box should be random (you're free to choose the likelihood of a box being on), but at least one box must be on.
+2. **GRID**: See a grid of light boxes. The initial state of each box should be random (you're free to choose the likelihood of a box being on), but at least one box must be on.
 3. **CLICKING**: Click on a box to change its state and also the states of its neighbors (see VARIANTS below).
-4. **VICTORY**: Detect if the game is won when all the lights are turned off, and display a victory message.
-5. **RESIZE**: Have buttons to change the width and the height of the game.
-6. **RESET**: Click a button to start a new game, and display the number of times the player has won
+4. **VICTORY**: Detect if the game is won (the state of every box is off) and, if so, display a victory message that includes the number of clicks.
+5. **RESIZE**: Have buttons to change the width and the height of the grid.
+6. **RESET**: Click a button to start a new game.
 7. **VARIANTS**: Support variant gameplay where the lights that change are "cardinal neighbors" (the default), "entire row/column", and "diagonal neighbors".
 8. **TESTS**: Have tests for the core functionality of the game
 
 Extension Ideas:
 
 - Easy: **MENUS**: Have separate screens for the game title, game over, and victory
+- Medium: **LEADER BOARD**: Have a arcade-style persistant leader board that tracks a user-provied name and number of clicks for each variant
 - Hard: **SOLVER**: Have a "solve this" button that slowly wins the game by performing the ["follow the lights" algorithm](https://stackoverflow.com/questions/19795973/lights-out-game-algorithm)
 
 ### Habit Tracker
