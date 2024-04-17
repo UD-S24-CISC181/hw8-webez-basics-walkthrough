@@ -75,7 +75,7 @@ We will run similarity detection code across all repositories, to look for insta
 We will have weekly milestone submissions to ensure that you are making adequate progress towards your goal.
 
 * For this assignment (April 21), you must fork the assignment, add your name and UD email to the site (requirement 1), and deploy your site without issues. Refer to [Part 5 of the walkthrough](https://ud-s24-cisc181.github.io/hw8-webez-basics-walkthrough/webez-basics#5-deploy-your-site) for more information about deploying your site (note that you skip the first step, since we have not damaged the deploy file this time). 
-* For the first milestone (April 28), we expect you to achieve at least 3 of the requirements.
+* For the first milestone (April 28), we expect you to achieve at least 3 of the requirements (two new requirements since the first requirement of adding your name).
 * For the second milestone (May 5), we expect you to achieve at least 5 of the requirements.
 * For the third milestone (May 12), we expect you to achieve at least 7 of the requirements.
 * For the final submission (May 19), we expect you to have finished everything.
@@ -119,4 +119,4 @@ Then, complete the first requirement (adding your name and UD email to the site)
 
 Save/add/commit/push, and then make sure your site deploys.
 
-Then start working on the first real requirement for your chosen project!
+Then start working on the next requirement for your chosen project!
