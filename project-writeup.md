@@ -129,7 +129,7 @@ Any commonly recurring questions will be answered here.
 **Q:** *Can I work with my friend if they are in a different lab section than I am?*\
 **A:** No, you must be in the same lab section to work together. You will be working on the project during lab time, and we will take attendance as usual.
 
-**Q:** *Can I modify the `tsconfig.json`, `.eslintrc.js`, or `.github/workflows/deploy.yml` files?
+**Q:** *Can I modify the `tsconfig.json`, `.eslintrc.js`, or `.github/workflows/deploy.yml` files?*\
 **A:** Tampering with the core infrastructure of the project (e.g., to turn off linting rules) is technically a form of academic dishonesty. Do not modify these files without permission by the instructor. Modifying them can be easily detected on our end and may be reported if it is done to bypass course requirements (e.g., disabling the `No Any Type` rule in the linter). Some files are perfectly fine to modify (e.g., `package.json`, `package-lock.json`) and others you are even invited to modify (e.g., `styles.css`). If you are unsure about whether you can modify a file, just ask!
 
 ## Change Log
