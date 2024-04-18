@@ -60,7 +60,7 @@ Extension Ideas:
 
 ## Collaboration Policy
 
-You are allowed to work with one partner on the final project, but you must COLLABORATE equally.
+You are allowed to work with one partner **from your lab section** on the final project, but you must COLLABORATE equally.
 
 **If you are going to work together, you must BOTH be making commits from your own account.**
 
@@ -126,10 +126,13 @@ Then start working on the next requirement for your chosen project!
 
 Any commonly recurring questions will be answered here.
 
-*No questions so far*
+**Q:** *Can I work with my friend if they are in a different lab section than I am?*\
+**A:** No, you must be in the same lab section to work together. You will be working on the project during lab time, and we will take attendance as usual.
 
 ## Change Log
 
 We'll keep track of changes to the project in this Change Log, in case we have to make significant changes or clarifications.
 
 * Version 0.0.1 (4/17/24 at 10:26am): Initial version posted
+* Version 0.0.2 (4/18/24 at 1:30am): Added partner from lab specification
+
