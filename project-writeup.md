@@ -132,6 +132,9 @@ Any commonly recurring questions will be answered here.
 **Q:** *Can I modify the `tsconfig.json`, `.eslintrc.js`, or `.github/workflows/deploy.yml` files?*\
 **A:** Tampering with the core infrastructure of the project (e.g., to turn off linting rules) is technically a form of academic dishonesty. Do not modify these files without permission by the instructor. Modifying them can be easily detected on our end and may be reported if it is done to bypass course requirements (e.g., disabling the `No Any Type` rule in the linter). Some files are perfectly fine to modify (e.g., `package.json`, `package-lock.json`) and others you are even invited to modify (e.g., `styles.css`). If you are unsure about whether you can modify a file, just ask!
 
+**Q:** *What do you mean by "Have tests for the core functionality of the app"? What are the expectations for tests?*\
+**A:** Our expectations for the tests are actually relatively low, compared to the tests we have had you writing all semester. You are not expected to test WebEZ functionality related to the DOM (HTML+CSS), so you do not need to simulate button clicks or anything (although that is possible, and you are free to do so for extra credit!). Instead, we want you to focus on *core* functionality, making sure it is sufficiently extracted from the interface. Think of the core logic, most complicated logic of your application. For example, in the Lights-Out game, you need to check and manipulate the board; in the habit tracker, you have to group up the habits to determine the bar graph amounts. This kind of logic can be isolated in your application so that you can write some tests for it directly. We expect you to find a way to write some compelling tests for that kind of core functionality. There is no miminum number of tests or amount of coverage that we specifically expect, but you should think about a range of test cases to ensure that you have valid and thorough tests.
+
 ## Change Log
 
 We'll keep track of changes to the project in this Change Log, in case we have to make significant changes or clarifications.
@@ -139,3 +142,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
 * Version 0.0.1 (4/17/24 at 10:26am): Initial version posted
 * Version 0.0.2 (4/18/24 at 1:30am): Added partner from lab specification
 * Version 0.0.3 (4/18/24 at 10:39am): Added clarification about tampering with files
+* Version 0.0.4 (4/22/24 at 12:53pm): Added clarification on test expectations
