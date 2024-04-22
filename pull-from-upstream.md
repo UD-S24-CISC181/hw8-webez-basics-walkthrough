@@ -20,7 +20,7 @@ If there are upstream changes to pull, it will say that you have "N commits behi
 You might have both, but you only have to do something if you "commits behind" , which should give you access to a "Sync fork" button.  
 **Click the "Sync fork" button** to reveal further options. If that button is not available, then congratulations! You do not have anything to pull in and you are up-to-date. You can stop reading this guide.
 
-If the changes are easy to merge then it will offer you the ability to "Update branch" and you can go to [Step 3](#step-3). If it offers "Open pull request", then things are a little bit trickier and you need to go to [Step 2](#step-2).
+If the changes are easy to merge then it will offer you the ability to "Update branch" and you can go to [Step 3](#step-3-pulling-the-local-changes). If it offers "Open pull request", then things are a little bit trickier and you need to go to [Step 2](#step-2-pulling-remotes-locally).
 
 <table class="table table-condensed table-striped table-responsive table-bordered">
     <thead>
@@ -32,10 +32,10 @@ If the changes are easy to merge then it will offer you the ability to "Update b
     <tbody>
         <tr>
             <td>
-                <p>If you get the option to "Open pull request" because "this branch has conflicts that must be resolved". That means you changed the files more than Git can handle automatically, and you will need <strong>to go to <a href="#step-2">Step 2</a></strong>.</p>
+                <p>If you get the option to "Open pull request" because "this branch has conflicts that must be resolved". That means you changed the files more than Git can handle automatically, and you will need <strong>to go to <a href="#step-2-pulling-remotes-locally">Step 2</a></strong>.</p>
             </td>
             <td>
-                <p>Choose to "Update branch" and that will update your remote repository. <strong>Then go to <a href="#step-3">Step 3</a></strong>.</p>
+                <p>Choose to "Update branch" and that will update your remote repository. <strong>Then go to <a href="#step-3-pulling-the-local-changes">Step 3</a></strong>.</p>
             </td>
         </tr>
         <tr>
@@ -51,7 +51,7 @@ If the changes are easy to merge then it will offer you the ability to "Update b
 
 ### Step 2) Pulling Remotes Locally
 
-Remember, if you just used "Update branch", then you can skip over this step and go directly to [Step 3](#step-3).
+Remember, if you just used "Update branch", then you can skip over this step and go directly to [Step 3](#step-3-pulling-the-local-changes).
 
 Open up your repository in VS Code.
 
@@ -105,7 +105,7 @@ Choose the "Merge" option.
 
 ![image.png](images/pfu/confirm_merge.png)
 
-If there are merge conflicts, then go to [Step 4](#step-4). Otherwise, you are probably done and ready to continue working with the latest changes.
+If there are merge conflicts, then go to [Step 4](#step-4-resolving-local-merge-conflicts). Otherwise, you are probably done and ready to continue working with the latest changes.
 
 ### Step 3) Pulling the Local Changes
 
@@ -117,7 +117,7 @@ Then, **stage and commit any changed files.**
 
 Third, **click the "Sync" button** to pull the new remote changes (and hopefully push your changes so far).
 
-This last step can go wrong if your local changes have merge conflicts with the remote. For example, if you modified the same line of code that we modified, then you will get a merge conflict. Proceed to [step 4](step-4).
+This last step can go wrong if your local changes have merge conflicts with the remote. For example, if you modified the same line of code that we modified, then you will get a merge conflict. Proceed to [step 4](#step-4-resolving-local-merge-conflicts).
 
 If nothing goes wrong, then you should get the new version of the files and you are done.
 
