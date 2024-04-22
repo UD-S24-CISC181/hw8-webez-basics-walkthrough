@@ -80,6 +80,28 @@ We will have weekly milestone submissions to ensure that you are making adequate
 * For the third milestone (May 12), we expect you to achieve at least 7 of the requirements.
 * For the final submission (May 19), we expect you to have finished everything.
 
+### Progress Updates
+
+**New as of 4/22/2024 at 2:39pm**
+
+As you submit milestones, you need to update the `docs/progress.md` file to clearly indicate what requirements you have finished.
+
+First, you will need to sync the latest version of the upstream repository (both on Github and in your VS Code). There are unlikely to be any merge conflicts, but be prepared to deal with them as needed.
+Once you have pulled the latest changes, then you will find a new file in your top-level `docs/` folder named `progress.md` which has checkboxes for you to fill in with `X` marks.
+Each time you complete a requirement, you should replace the empty whitespace with an `X`, like so:
+
+```md
+- [X] NAME
+- [ ] GRID
+- [ ] CLICKING
+```
+
+Do not remove requirements or alter the requirements' names, or generally modify the rest of the Markdown in the file. Doing so may cause an automatic system to reject your submission or misinterpret your completion rate, and give you a lower grade than you would have otherwise earned. You should only put the `X` in the blank or leave the blank as a whitespace.
+
+Note that if a feature is no longer working, you should clear the box. Claiming that a feature is working when it is not will have negative repurcussions on your grade and is technically academic misconduct.
+
+You can test if your Progress list has deployed successfully by adding `docs/progress` to the end of your URL, which will show a page like this: <https://ud-s24-cisc181.github.io/final-project-template/docs/progress>
+
 ## Styling and Creative Freedom
 
 There is some ambiguity in the requirements. Ultimately, the instructors will decide if a given requirement is met. However, there is meant to be some flexibility for you to have more advanced functionality. But you need to make sure you meet the minimum requirements; if you are concerned about whether you are meeting that requirement, then you should check with your TA and/or instructor.
@@ -121,7 +143,6 @@ Save/add/commit/push, and then make sure your site deploys.
 
 Then start working on the next requirement for your chosen project!
 
-
 ## Frequently Asked Questions (FAQ)
 
 Any commonly recurring questions will be answered here.
@@ -143,3 +164,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
 * Version 0.0.2 (4/18/24 at 1:30am): Added partner from lab specification
 * Version 0.0.3 (4/18/24 at 10:39am): Added clarification about tampering with files
 * Version 0.0.4 (4/22/24 at 12:53pm): Added clarification on test expectations
+* Version 0.1.0 (4/22/24 at 2:45pm): Added Progress Updates section to explain the `progress.md` file
