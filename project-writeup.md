@@ -156,6 +156,9 @@ Any commonly recurring questions will be answered here.
 **Q:** *What do you mean by "Have tests for the core functionality of the app"? What are the expectations for tests?*\
 **A:** Our expectations for the tests are actually relatively low, compared to the tests we have had you writing all semester. You are not expected to test WebEZ functionality related to the DOM (HTML+CSS), so you do not need to simulate button clicks or anything (although that is possible, and you are free to do so for extra credit!). Instead, we want you to focus on *core* functionality, making sure it is sufficiently extracted from the interface. Think of the core logic, most complicated logic of your application. For example, in the Lights-Out game, you need to check and manipulate the board; in the habit tracker, you have to group up the habits to determine the bar graph amounts. This kind of logic can be isolated in your application so that you can write some tests for it directly. We expect you to find a way to write some compelling tests for that kind of core functionality. There is no miminum number of tests or amount of coverage that we specifically expect, but you should think about a range of test cases to ensure that you have valid and thorough tests.
 
+**Q:** *I have finished the milestone for this week. Do I have to attend lab?*\
+**A:** Lab attendance is required until you have completed the entire project AND confirmed with your TA. When you finish all the requirements, email your TA and ask them to check your deployed site (provide them a link). They will need to respond with a positive confirmation that all requirements are completed. If you miss lab (regardless of your milestone progress), then you will be marked absent.
+
 ## Change Log
 
 We'll keep track of changes to the project in this Change Log, in case we have to make significant changes or clarifications.
@@ -166,3 +169,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
 * Version 0.0.4 (4/22/24 at 12:53pm): Added clarification on test expectations
 * Version 0.1.0 (4/22/24 at 2:45pm): Added Progress Updates section to explain the `progress.md` file
 * Version 0.1.1 (4/23/24 at 12:25pm): Included "pull from upstream" link in progress updates section.
+* Version 0.1.2 (4/23/24 at 12:37pm): Clarified lab attendance regarding milestones.
