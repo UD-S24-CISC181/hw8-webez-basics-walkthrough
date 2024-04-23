@@ -86,7 +86,7 @@ We will have weekly milestone submissions to ensure that you are making adequate
 
 As you submit milestones, you need to update the `docs/progress.md` file to clearly indicate what requirements you have finished.
 
-First, you will need to sync the latest version of the upstream repository (both on Github and in your VS Code). There are unlikely to be any merge conflicts, but be prepared to deal with them as needed.
+First, you will need to [sync the latest version](https://ud-s24-cisc181.github.io/hw8-webez-basics-walkthrough/pull-from-upstream.html) of the upstream repository (both on Github and in your VS Code). There are unlikely to be any merge conflicts, but be prepared to deal with them as needed.
 Once you have pulled the latest changes, then you will find a new file in your top-level `docs/` folder named `progress.md` which has checkboxes for you to fill in with `X` marks.
 Each time you complete a requirement, you should replace the empty whitespace with an `X`, like so:
 
@@ -165,3 +165,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
 * Version 0.0.3 (4/18/24 at 10:39am): Added clarification about tampering with files
 * Version 0.0.4 (4/22/24 at 12:53pm): Added clarification on test expectations
 * Version 0.1.0 (4/22/24 at 2:45pm): Added Progress Updates section to explain the `progress.md` file
+* Version 0.1.1 (4/23/24 at 12:25pm): Included "pull from upstream" link in progress updates section.
