@@ -1,3 +1,8 @@
+---
+title: Pull from Upstream
+layout: page
+---
+
 So the instructor messed up and released a repository with mistakes. Now you need to get the latest version of the assignment.
 
 Don't panic, just follow this guide!
