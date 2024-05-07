@@ -39,6 +39,9 @@ Extension Ideas:
 
 ### Habit Tracker
 
+<!-- Reset counter -->
+<span style="counter-reset: stepper"></span>
+
 Instructor Example: <https://ud-s24-cisc181.github.io/example-habit-tracker/>
 
 Users must be able to:
@@ -49,7 +52,7 @@ Users must be able to:
 4. **TRACK**: Provide a way for the user to indicate whether a habit has been completed for the current active day
 5. **MOVE**: Be able to change the current active day being tracked using convenient buttons - at minimum, that means the ability to move to the next and previous days
 6. **GRAPH**: See a graph (bar chart) with the counts of each habit
-7. **REMOVE**: Be able to remove a habit (correctly updating the tracker and graph)
+7. **REMOVE**: Be able to remove a habit (correctly updating the tracker and graph) (**Added 5/7/2024:** SEE FAQ for clarification)
 
 Extension Ideas:
 
@@ -182,6 +185,9 @@ Any commonly recurring questions will be answered here.
 **Q:** *Am I allowed to use other libraries instead of WebEz?*\
 **A:** No, you must use WebEz for this project. We have not covered other libraries in this course, and we want to ensure that you are able to complete the project with the tools we have provided. If you have a specific need that you think WebEz cannot meet, please ask your TA or instructor for help. Note that abusing HTML manipulating code using JQuery or the DOM API (`document.querySelector`) is also not allowed. *(Added 5/7/24 at 9:51am)*
 
+**Q:** *What does the **REMOVE** requirement mean in the Habit Tracker?*\
+**A:** The **REMOVE** requirement means that you should be able to remove a habit from the list of habits. This should also remove the habit from the graph. If you have a habit that has been tracked for multiple days, then removing the habit should remove all of the data for that habit from the Tracker. But it's not referring to checking/unchecking the habit in the tracker - it's talking about actually *removing* the habit entirely. *(Added 5/7/24 at 12:26pm)*
+
 ## Change Log
 
 We'll keep track of changes to the project in this Change Log, in case we have to make significant changes or clarifications.
@@ -197,3 +203,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
   * Modified project requirement TESTS to be optional
   * Added section about code style and quality
   * Clarified both in FAQ
+* Version 0.2.1 (5/07/24 at 12:26pm): Added clarification about the **REMOVE** requirement in the Habit Tracker
