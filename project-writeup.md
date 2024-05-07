@@ -118,7 +118,7 @@ Once you are finished with your project code, check over the following:
 * Included good jsdoc documentation for your classes, functions, and methods.
 * Decomposed complicated functions with helper functions
 * Decomposed components into ways that make sense (not too massive, but also not unnecessary ones)
-* Avoided global state (e.g., a global variable)
+* Avoided global state (e.g., a global variable). Global *constants* and top-level functions are fine, but storing data in a mutable global variable is bad practice.
 
 Your TA will be grading your code's quality based on the ideas above.
 
