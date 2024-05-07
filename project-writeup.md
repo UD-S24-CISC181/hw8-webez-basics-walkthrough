@@ -77,8 +77,8 @@ We will have weekly milestone submissions to ensure that you are making adequate
 * For this assignment (April 21), you must fork the assignment, add your name and UD email to the site (requirement 1), and deploy your site without issues. Refer to [Part 5 of the walkthrough](https://ud-s24-cisc181.github.io/hw8-webez-basics-walkthrough/webez-basics#5-deploy-your-site) for more information about deploying your site (note that you skip the first step, since we have not damaged the deploy file this time). 
 * For the first milestone (April 28), we expect you to achieve at least 3 of the requirements (two new requirements since the first requirement of adding your name).
 * For the second milestone (May 5), we expect you to achieve at least 5 of the requirements.
-* For the third milestone (May 12), we expect you to achieve at least 6 of the requirements.
-* For the final submission (May 19), we expect you to have finished everything.
+* For the third milestone (May 12), we expect you to achieve all 7 of the requirements.
+* For the final submission (May 19), we expect you to have finished everything. You will spend this week making sure your code is high-quality in terms of documentation, names, functional decomposition, etc.
 
 ### Progress Updates
 
@@ -107,6 +107,22 @@ You can test if your Progress list has deployed successfully by adding `docs/pro
 There is some ambiguity in the requirements. Ultimately, the instructors will decide if a given requirement is met. However, there is meant to be some flexibility for you to have more advanced functionality. But you need to make sure you meet the minimum requirements; if you are concerned about whether you are meeting that requirement, then you should check with your TA and/or instructor.
 
 Some extra credit points will be available for functional sites that go above and beyond with their styling. We strongly recommend that, once you have core functionality, you spend some time making your application look the way you want it to. This is something that you could put in your portfolio. Make it look good! It may also influence your grader (people tend to be influenced heavily by how nice websites look, even if we try to be unbiased).
+
+## Code Quality Grading
+
+**New as of 5/07/2024 at 9:50am**
+
+Once you are finished with your project code, check over the following:
+
+* Chosen good variable/function/class names (clear, concise, consistent, conventional, and correct)
+* Included good jsdoc documentation for your classes, functions, and methods.
+* Decomposed complicated functions with helper functions
+* Decomposed components into ways that make sense (not too massive, but also not unnecessary ones)
+* Avoided global state (e.g., a global variable)
+
+Your TA will be grading your code's quality based on the ideas above.
+
+Make sure your program and website runs; **broken programs do not earn points.**
 
 ## Help Resources
 
@@ -157,11 +173,14 @@ Any commonly recurring questions will be answered here.
 ~~**Q:** *What do you mean by "Have tests for the core functionality of the app"? What are the expectations for tests?*\~~
 ~~**A:** Our expectations for the tests are actually relatively low, compared to the tests we have had you writing all semester. You are not expected to test WebEZ functionality related to the DOM (HTML+CSS), so you do not need to simulate button clicks or anything (although that is possible, and you are free to do so for extra credit!). Instead, we want you to focus on *core* functionality, making sure it is sufficiently extracted from the interface. Think of the core logic, most complicated logic of your application. For example, in the Lights-Out game, you need to check and manipulate the board; in the habit tracker, you have to group up the habits to determine the bar graph amounts. This kind of logic can be isolated in your application so that you can write some tests for it directly. We expect you to find a way to write some compelling tests for that kind of core functionality. There is no miminum number of tests or amount of coverage that we specifically expect, but you should think about a range of test cases to ensure that you have valid and thorough tests.~~ (Superceded by next FAQ entry)
 
-**Q:** *Why are the tests not required anymore?*
-**A:** A few reasons, but primarily because we didn't think we did enough to prepare you for writing tests and because we want to reward those who have achieved the core functionality. However, the tests ARE important, and we do want you to see that they are valued. Hence, we plan to offer you points if you do a good job writing tests. Note that just having tests is not sufficient, nor is there some minimum number you need. We will only give you points if the tests are *valid* and *thorough*, covering a wide range of interesting cases. If you need ideas on how to write tests for WebEz, we strongly recommend checking out its source code repository (particularly all of the [example applications' tests](https://github.com/gsilber/WebEZ/blob/main/WebEZ-Example/src/app/components/taskviewer/taskviewer.component.test.ts)). You are not required to test that WebEZ works, your goal is to write tests that exercise the functionality you have created with WebEZ. *(Added 5/7/24 at 9:15am)*
+**Q:** *Why are the tests not required anymore?*\
+**A:** A few reasons, but primarily because we didn't think we did enough to prepare you for writing tests and because we want to reward those who have achieved the core functionality. However, the tests ARE important, and we do want you to see that they are valued. Hence, we plan to offer you points if you do a good job writing tests. Note that just having tests is not sufficient, nor is there some minimum number you need. We will only give you points if the tests are *valid* and *thorough*, covering a wide range of interesting cases. If you need ideas on how to write tests for WebEz, we strongly recommend checking out its source code repository (particularly all of the [example applications' tests](https://github.com/gsilber/WebEZ/blob/main/WebEZ-Example/src/app/components/taskviewer/taskviewer.component.test.ts)). You are not required to test that WebEZ works, your goal is to write tests that exercise the functionality you have created with WebEZ. *(Added 5/7/24 at 9:52am)*
 
 **Q:** *I have finished the milestone for this week. Do I have to attend lab?*\
 **A:** Lab attendance is required until you have completed the entire project AND confirmed with your TA. When you finish all the requirements, email your TA and ask them to check your deployed site (provide them a link). They will need to respond with a positive confirmation that all requirements are completed. If you miss lab (regardless of your milestone progress), then you will be marked absent.
+
+**Q:** *Am I allowed to use other libraries instead of WebEz?*\
+**A:** No, you must use WebEz for this project. We have not covered other libraries in this course, and we want to ensure that you are able to complete the project with the tools we have provided. If you have a specific need that you think WebEz cannot meet, please ask your TA or instructor for help. Note that abusing HTML manipulating code using JQuery or the DOM API (`document.querySelector`) is also not allowed. *(Added 5/7/24 at 9:51am)*
 
 ## Change Log
 
@@ -174,5 +193,7 @@ We'll keep track of changes to the project in this Change Log, in case we have t
 * Version 0.1.0 (4/22/24 at 2:45pm): Added Progress Updates section to explain the `progress.md` file
 * Version 0.1.1 (4/23/24 at 12:25pm): Included "pull from upstream" link in progress updates section.
 * Version 0.1.2 (4/23/24 at 12:37pm): Clarified lab attendance regarding milestones.
-* Version 0.2.0 (5/07/24 at 9:15am): Modified project requirement TESTS to be optional.
-* 
+* Version 0.2.0 (5/07/24 at 10:00am): 
+  * Modified project requirement TESTS to be optional
+  * Added section about code style and quality
+  * Clarified both in FAQ
