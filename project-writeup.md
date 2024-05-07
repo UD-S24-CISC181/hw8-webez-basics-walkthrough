@@ -29,10 +29,10 @@ Players must be able to:
 5. **RESIZE**: Have buttons to change the width and the height of the grid.
 6. **RESET**: Click a button to start a new game.
 7. **VARIANTS**: Support variant gameplay where the lights that change are "cardinal neighbors" (the default), "entire row/column", and "diagonal neighbors".
-8. **TESTS**: Have tests for the core functionality of the game
 
 Extension Ideas:
 
+- Medium: **TESTS**: Have tests for the core functionality of the game
 - Easy: **MENUS**: Have separate screens for the game title, game over, and victory
 - Medium: **LEADER BOARD**: Have a arcade-style persistant leader board that tracks a user-provied name and number of clicks for each variant
 - Hard: **SOLVER**: Have a "solve this" button that slowly wins the game by performing the ["follow the lights" algorithm](https://stackoverflow.com/questions/19795973/lights-out-game-algorithm)
@@ -50,10 +50,10 @@ Users must be able to:
 5. **MOVE**: Be able to change the current active day being tracked using convenient buttons - at minimum, that means the ability to move to the next and previous days
 6. **GRAPH**: See a graph (bar chart) with the counts of each habit
 7. **REMOVE**: Be able to remove a habit (correctly updating the tracker and graph)
-8. **TESTS**: Have tests for the core functionality of the app
 
 Extension Ideas:
 
+- Medium: **TESTS**: Have tests for the core functionality of the application
 - Easy: **DEFAULTS**: Have default buttons for some common habits ("Sleep 8 hours", "Eat Healthy", "Work on Schoolwork")
 - Medium: **GOALS**: Add a "weekly goal" for each habit, and make the graph show progress towards the weekly goal.
 - Hard: **SAVING**: Have the ability to save and load (either by using localStorage or download/upload files).
@@ -77,7 +77,7 @@ We will have weekly milestone submissions to ensure that you are making adequate
 * For this assignment (April 21), you must fork the assignment, add your name and UD email to the site (requirement 1), and deploy your site without issues. Refer to [Part 5 of the walkthrough](https://ud-s24-cisc181.github.io/hw8-webez-basics-walkthrough/webez-basics#5-deploy-your-site) for more information about deploying your site (note that you skip the first step, since we have not damaged the deploy file this time). 
 * For the first milestone (April 28), we expect you to achieve at least 3 of the requirements (two new requirements since the first requirement of adding your name).
 * For the second milestone (May 5), we expect you to achieve at least 5 of the requirements.
-* For the third milestone (May 12), we expect you to achieve at least 7 of the requirements.
+* For the third milestone (May 12), we expect you to achieve at least 6 of the requirements.
 * For the final submission (May 19), we expect you to have finished everything.
 
 ### Progress Updates
@@ -153,8 +153,12 @@ Any commonly recurring questions will be answered here.
 **Q:** *Can I modify the `tsconfig.json`, `.eslintrc.js`, or `.github/workflows/deploy.yml` files?*\
 **A:** Tampering with the core infrastructure of the project (e.g., to turn off linting rules) is technically a form of academic dishonesty. Do not modify these files without permission by the instructor. Modifying them can be easily detected on our end and may be reported if it is done to bypass course requirements (e.g., disabling the `No Any Type` rule in the linter). Some files are perfectly fine to modify (e.g., `package.json`, `package-lock.json`) and others you are even invited to modify (e.g., `styles.css`). If you are unsure about whether you can modify a file, just ask!
 
-**Q:** *What do you mean by "Have tests for the core functionality of the app"? What are the expectations for tests?*\
-**A:** Our expectations for the tests are actually relatively low, compared to the tests we have had you writing all semester. You are not expected to test WebEZ functionality related to the DOM (HTML+CSS), so you do not need to simulate button clicks or anything (although that is possible, and you are free to do so for extra credit!). Instead, we want you to focus on *core* functionality, making sure it is sufficiently extracted from the interface. Think of the core logic, most complicated logic of your application. For example, in the Lights-Out game, you need to check and manipulate the board; in the habit tracker, you have to group up the habits to determine the bar graph amounts. This kind of logic can be isolated in your application so that you can write some tests for it directly. We expect you to find a way to write some compelling tests for that kind of core functionality. There is no miminum number of tests or amount of coverage that we specifically expect, but you should think about a range of test cases to ensure that you have valid and thorough tests.
+
+~~**Q:** *What do you mean by "Have tests for the core functionality of the app"? What are the expectations for tests?*\~~
+~~**A:** Our expectations for the tests are actually relatively low, compared to the tests we have had you writing all semester. You are not expected to test WebEZ functionality related to the DOM (HTML+CSS), so you do not need to simulate button clicks or anything (although that is possible, and you are free to do so for extra credit!). Instead, we want you to focus on *core* functionality, making sure it is sufficiently extracted from the interface. Think of the core logic, most complicated logic of your application. For example, in the Lights-Out game, you need to check and manipulate the board; in the habit tracker, you have to group up the habits to determine the bar graph amounts. This kind of logic can be isolated in your application so that you can write some tests for it directly. We expect you to find a way to write some compelling tests for that kind of core functionality. There is no miminum number of tests or amount of coverage that we specifically expect, but you should think about a range of test cases to ensure that you have valid and thorough tests.~~ (Superceded by next FAQ entry)
+
+**Q:** *Why are the tests not required anymore?*
+**A:** A few reasons, but primarily because we didn't think we did enough to prepare you for writing tests and because we want to reward those who have achieved the core functionality. However, the tests ARE important, and we do want you to see that they are valued. Hence, we plan to offer you points if you do a good job writing tests. Note that just having tests is not sufficient, nor is there some minimum number you need. We will only give you points if the tests are *valid* and *thorough*, covering a wide range of interesting cases. If you need ideas on how to write tests for WebEz, we strongly recommend checking out its source code repository (particularly all of the [example applications' tests](https://github.com/gsilber/WebEZ/blob/main/WebEZ-Example/src/app/components/taskviewer/taskviewer.component.test.ts)). You are not required to test that WebEZ works, your goal is to write tests that exercise the functionality you have created with WebEZ. *(Added 5/7/24 at 9:15am)*
 
 **Q:** *I have finished the milestone for this week. Do I have to attend lab?*\
 **A:** Lab attendance is required until you have completed the entire project AND confirmed with your TA. When you finish all the requirements, email your TA and ask them to check your deployed site (provide them a link). They will need to respond with a positive confirmation that all requirements are completed. If you miss lab (regardless of your milestone progress), then you will be marked absent.
@@ -170,3 +174,5 @@ We'll keep track of changes to the project in this Change Log, in case we have t
 * Version 0.1.0 (4/22/24 at 2:45pm): Added Progress Updates section to explain the `progress.md` file
 * Version 0.1.1 (4/23/24 at 12:25pm): Included "pull from upstream" link in progress updates section.
 * Version 0.1.2 (4/23/24 at 12:37pm): Clarified lab attendance regarding milestones.
+* Version 0.2.0 (5/07/24 at 9:15am): Modified project requirement TESTS to be optional.
+* 
