@@ -207,6 +207,9 @@ Any commonly recurring questions will be answered here.
 **Q:** *What does the **REMOVE** requirement mean in the Habit Tracker?*\
 **A:** The **REMOVE** requirement means that you should be able to remove a habit from the list of habits. This should also remove the habit from the graph. If you have a habit that has been tracked for multiple days, then removing the habit should remove all of the data for that habit from the Tracker. But it's not referring to checking/unchecking the habit in the tracker - it's talking about actually *removing* the habit entirely. *(Added 5/7/24 at 12:26pm)*
 
+**Q:** *What is this `Diagram` tab that appears in my deployed site's `docs` page?*\
+**A:** The `Diagram` tab is a new feature that shows a diagram of the components in your application. This is a feature of WebEz that we have not covered in class, but it is a useful tool for understanding the structure of your application. The boxes are each of your Component classes; solid lines are drawn between fields composing other components, and dashed lines are drawn between references made through local variables, parameters, and return values. You can ignore this tab if you like, but it may be helpful for understanding how your components are connected. Although you will not be graded directly on the diagram, the graders may use it to more quickly understand the structure of your website as they review your code. If you think that the  diagram is inaccurate, then you can contact Dr. Bart ([acbart@udel.edu](acbart@udel.edu)) with bug reports. *(Added 5/7/24 at 12:15pm)*
+
 ## Change Log
 
 We'll keep track of changes to the project in this Change Log, in case we have to make significant changes or clarifications.
@@ -224,3 +227,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
   * Clarified both in FAQ
 * Version 0.2.1 (5/07/24 at 12:26pm): Added clarification about the **REMOVE** requirement in the Habit Tracker
 * Version 0.3.0 (5/12/24 at 12:12pm): Added video submission requirement
+* Version 0.3.1 (5/12/24 at 12:15pm): Added clarification about the `Diagram` tab in the deployed site
