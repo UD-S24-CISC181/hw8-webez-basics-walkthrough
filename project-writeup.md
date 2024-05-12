@@ -150,6 +150,25 @@ Be cautious in how much help you accept, since you will need to be able to expla
 
 The final submission for the project (and this assignment) will be a deployed website. Failure to deploy means that you will earn zero points.
 
+### Video Submission
+
+**New as of 5/12/2024 at 12:12pm**
+
+You are required to record a video of your completed website in action, demonstrating all of your features.
+
+The video should be embedded in your `docs/video.md` file. This file has been added to the upstream repository. You will need to [sync the latest version](https://ud-s24-cisc181.github.io/hw8-webez-basics-walkthrough/pull-from-upstream.html).
+
+* **Publicly Accessible:** The video should be publicly accessible, either on YouTube or in your Google Drive. Make sure that the video is not private or restricted in any way.
+* **Embedding:** You should replace the placeholder text of `docs/video.md` with the embed code for your video. If you are using YouTube, you can find the embed code by clicking the "Share" button and then the "Embed" button. Markdown files can have HTML embedded in them, so you can paste the HTML code directly into the file.
+* **Duration:** The video does not have a minimum or maximum length, although it should not take too long to demonstrate all of the features of your site.
+We expect them to take between 1 and 5 minutes.
+* **Narration:** You should narrate the video, explaining what you are doing and what features you are demonstrating. Make sure the audio is clear and easy to understand.
+* **No Code:** Do not show the code for your project. Focus only on the website itself.
+* **Content:** Make sure you show off all of the required features of your site, explicitly naming each one as you demonstrate it. If you completed any extension ideas, make sure to show those off as well.
+* **Broken Features:** If a feature is not working, then do not demonstrate it or explain why it is not working.
+
+Failure to include an audible and visible video that demonstrates all of your features will result in a grade penalty. The burden of proof is on you to demonstrate that you have completed the requirements!
+
 ## Starting
 
 To begin the project, follow this link to clone the assignment: <https://classroom.github.com/a/PpxBwu6A>
@@ -204,3 +223,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
   * Added section about code style and quality
   * Clarified both in FAQ
 * Version 0.2.1 (5/07/24 at 12:26pm): Added clarification about the **REMOVE** requirement in the Habit Tracker
+* Version 0.3.0 (5/12/24 at 12:12pm): Added video submission requirement
