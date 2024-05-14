@@ -26,7 +26,7 @@ Players must be able to:
 2. **GRID**: See a grid of light boxes. The initial state of each box should be random (you're free to choose the likelihood of a box being on), but at least one box must be on.
 3. **CLICKING**: Click on a box to change its state and also the states of its neighbors (see VARIANTS below).
 4. **VICTORY**: Detect if the game is won (the state of every box is off) and, if so, display a victory message that includes the number of clicks.
-5. **RESIZE**: Have buttons to change the width and the height of the grid.
+5. **RESIZE**: Have buttons to change the width and the height of the grid. (**Added 5/14/2024:** SEE FAQ for clarification)
 6. **RESET**: Click a button to start a new game.
 7. **VARIANTS**: Support variant gameplay where the lights that change are "cardinal neighbors" (the default), "entire row/column", and "diagonal neighbors".
 
@@ -210,6 +210,9 @@ Any commonly recurring questions will be answered here.
 **Q:** *What is this `Diagram` tab that appears in my deployed site's `docs` page?*\
 **A:** The `Diagram` tab is a new feature that shows a diagram of the components in your application. This is a feature of WebEz that we have not covered in class, but it is a useful tool for understanding the structure of your application. The boxes are each of your Component classes; solid lines are drawn between fields composing other components, and dashed lines are drawn between references made through local variables, parameters, and return values. You can ignore this tab if you like, but it may be helpful for understanding how your components are connected. Although you will not be graded directly on the diagram, the graders may use it to more quickly understand the structure of your website as they review your code. If you think that the  diagram is inaccurate, then you can contact Dr. Bart ([acbart@udel.edu](acbart@udel.edu)) with bug reports. *(Added 5/7/24 at 12:15pm)*
 
+**Q:** *Am I allowed to use sliders or input boxes for the `RESIZE` requirement?*\
+**A:** Yes, you are allowed to use sliders or input boxes for the `RESIZE` requirement instead of buttons. They do not have to be buttons. You are also free to make the grid auto-resize when you adjust the sliders, or to have it change only when you click a button. *(Added 5/14/24 at 12:10pm)*
+
 ## Change Log
 
 We'll keep track of changes to the project in this Change Log, in case we have to make significant changes or clarifications.
@@ -228,3 +231,4 @@ We'll keep track of changes to the project in this Change Log, in case we have t
 * Version 0.2.1 (5/07/24 at 12:26pm): Added clarification about the **REMOVE** requirement in the Habit Tracker
 * Version 0.3.0 (5/12/24 at 12:12pm): Added video submission requirement
 * Version 0.3.1 (5/12/24 at 12:15pm): Added clarification about the `Diagram` tab in the deployed site
+* Version 0.3.2 (5/14/24 at 12:10pm): Added clarification about using sliders or input boxes for the `RESIZE` requirement
